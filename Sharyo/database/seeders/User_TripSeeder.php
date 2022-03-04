@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
-class TravelSeeder extends Seeder
+
+class User_TripSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,11 +14,10 @@ class TravelSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('travels')->delete();
-        DB::table('travels')->insert([
+        DB::table('trip_user')->delete();
+        DB::table('trip_user')->insert([
             'trip_id' => 1,
-            'user_id'=> 'mariapalotes@hola.com',
-            
+            'user_id'=> 'mariapalotes@hola.com',  
         ]);
     }
 }

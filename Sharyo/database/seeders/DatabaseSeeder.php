@@ -29,8 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Trip table seeded!' );
 
         // Llamamos a otro fichero de semillas
-        $this->call( TravelSeeder ::class );
+        $this->call( User_TripSeeder ::class );
         // Mostramos informaci�n por consola
-        $this->command->info('Travel table seeded!' );
+        $this->command->info('User_trip table seeded!' );
     }
 }

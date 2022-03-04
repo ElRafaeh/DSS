@@ -27,4 +27,9 @@ class User extends Model
         'create_at', 
         'updated_at',
     ];
+
+    public function trips()
+    {
+        return $this->belongsToMany('App\Models\Trip');
+    }
 }

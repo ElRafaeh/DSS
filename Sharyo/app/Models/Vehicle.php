@@ -17,4 +17,9 @@ class Vehicle extends Model
         'plateNumber',
         'model',
     ];
+
+    public function trips()
+    {
+        return $this->belongsTo(Trip::class);
+    }
 }

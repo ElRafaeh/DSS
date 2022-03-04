@@ -20,7 +20,16 @@ class Trip extends Model
         'date',
         'distance',
         'availableSeats',
-        'vehicle_id'
-        
+        'vehicle_id'    
     ];
+
+    public function vehicles()
+    {
+        return $this->hasMany('App\Models\Vehicle'); 
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }
