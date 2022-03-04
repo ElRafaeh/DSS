@@ -15,17 +15,22 @@ class DatabaseSeeder extends Seeder
     {
         // Llamamos a otro fichero de semillas
         $this->call( UserSeeder ::class );
-        // Mostramos información por consola
+        // Mostramos informaciï¿½n por consola
         $this->command->info('User table seeded!' );
 
         // Llamamos a otro fichero de semillas
+        $this->call( VehicleSeeder ::class );
+        // Mostramos informaciï¿½n por consola
+        $this->command->info('Vehicle table seeded!' );
+
+        // Llamamos a otro fichero de semillas
         $this->call( TripSeeder ::class );
-        // Mostramos información por consola
+        // Mostramos informaciï¿½n por consola
         $this->command->info('Trip table seeded!' );
 
         // Llamamos a otro fichero de semillas
-        $this->call( VehicleSeeder ::class );
-        // Mostramos información por consola
-        $this->command->info('Vehicle table seeded!' );
+        $this->call( TravelSeeder ::class );
+        // Mostramos informaciï¿½n por consola
+        $this->command->info('Travel table seeded!' );
     }
 }

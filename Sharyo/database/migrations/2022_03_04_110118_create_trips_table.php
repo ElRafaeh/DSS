@@ -20,6 +20,8 @@ class CreateTripsTable extends Migration
             $table->string('date');
             $table->integer('distance');
             $table->integer('availableSeats');
+            $table->string('vehicle_id')->nullable(false);
+            $table->foreign('vehicle_id')->references('plateNumber')->on('vehicles');
             $table->timestamps();
         });
     }

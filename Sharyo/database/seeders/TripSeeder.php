@@ -22,6 +22,7 @@ class TripSeeder extends Seeder
             'date'=> '02/03/2022',
             'distance' => 400,
             'availableSeats'=> '3',
+            'vehicle_id'=>'2141 HBN',
         ]);
     }
 }
