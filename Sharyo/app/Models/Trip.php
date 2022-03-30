@@ -14,7 +14,6 @@ class Trip extends Model
      * 
      */
     protected $fillable = [
-        'tripID',
         'destination',
         'origin',
         'date',
