@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('register', function() {
+    return view('registro');
+});
 
 Route::get('/trip', [TripController::class, 'getAll']);
