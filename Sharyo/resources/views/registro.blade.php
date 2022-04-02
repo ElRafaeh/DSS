@@ -15,10 +15,18 @@
 
     <!--Main-->
     <div>
-        <form action="{{url('/trip')}}" method="GET">
+        <form action="{{url('/user')}}" method="GET">
             <label>Nombre</label>
             <input type="text" name="nombre" id="nombre"><br>
-            <button type="submit">HOLA</button>
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos"><br>
+            <label>Teléfono</label>
+            <input type="text" name="telefono" id="telefono"><br>
+            <label>Email</label>
+            <input type="text" name="email" id="email"><br>
+            <label>Contraseña</label>
+            <input type="text" name="password" id="password"><br>
+            <button type="submit">Registrar</button>
         </form>
     </div>
 </body>

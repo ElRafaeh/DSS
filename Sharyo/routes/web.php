@@ -17,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//cambiar a post?
 Route::get('register', function() {
     return view('registro');
 });
+Route::get('createTrip', function() {
+    return view('createTrip');
+});
 
-Route::get('/trip', [TripController::class, 'getAll']);
+//cambiar a user
+//Route::get('/user', [UserController::class, 'insert']);
+Route::get('/trip', [TripController::class, 'insert']);
