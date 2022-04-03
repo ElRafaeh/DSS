@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,5 @@ Route::get('createTrip', function() {
 });
 
 //cambiar a user
-//Route::get('/user', [UserController::class, 'insert']);
-Route::get('/trip', [TripController::class, 'insert']);
+Route::get('/user', [UserController::class, 'insert']);
+Route::get('/trip', [TripController::class, 'getAll']);

@@ -17,16 +17,16 @@
     <div>
         <form action="{{url('/user')}}" method="GET">
             <label>Nombre</label>
-            <input type="text" name="nombre" id="nombre"><br>
+            <input type="text" name="name" id="nombre"><br>
             <label>Apellidos</label>
-            <input type="text" name="apellidos" id="apellidos"><br>
+            <input type="text" name="surname" id="apellidos"><br>
             <label>Teléfono</label>
-            <input type="text" name="telefono" id="telefono"><br>
+            <input type="text" name="phoneNumber" id="telefono"><br>
             <label>Email</label>
             <input type="text" name="email" id="email"><br>
             <label>Contraseña</label>
             <input type="text" name="password" id="password"><br>
-            <button type="submit">Registrar</button>
+            <button class="button" type="submit">Registrar</button>
         </form>
     </div>
 </body>
