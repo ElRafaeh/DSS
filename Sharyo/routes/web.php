@@ -23,10 +23,6 @@ Route::get('/', function () {
 Route::resource('/vehicles', 'App\Http\Controllers\VehicleController');
 
 
-
-
-
-
 //cambiar a post?
 /*Route::resource('register', function() {
     return view('registro');
