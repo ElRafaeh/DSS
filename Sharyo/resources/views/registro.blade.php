@@ -15,7 +15,7 @@
 
     <!--Main-->
     <div>
-        <form action="{{url('/user')}}" method="GET">
+        <form action="{{url('/user')}}" method="POST">
             <label>Nombre</label>
             <input type="text" name="name" id="nombre"><br>
             <label>Apellidos</label>

@@ -7,8 +7,21 @@ use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
+    //indice por defecto
+    public function index()
+    {
+        $vehicles = Vehicle::all();
+        return view('vehicles.index')->with('vehicles', $vehicles);
+    }
+
+    // Método para llamar a la vista con el formulario de crear vehiculos
+    public function show()
+    {
+        return view('vehicles.create');
+    }
+
     // Insertar
-    public function insert(Request $request)
+    public function store(Request $request)
     {
         $vehicle = new Vehicle;
 
@@ -17,10 +30,7 @@ class VehicleController extends Controller
         
         $vehicle->save();
 
-        return response([
-                'plateNumber'=>(isset($vehicle->plateNumber) ? $vehicle->plateNumber:''),
-                'model'=>(isset($vehicle->model) ? $vehicle->model:'')
-            ], 200);
+        return redirect('/vehicles');
     }
 
     //
