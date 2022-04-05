@@ -14,21 +14,32 @@ class Trip extends Model
      * 
      */
     protected $fillable = [
-        'destination',
-        'origin',
         'date',
-        'distance',
-        'availableSeats',
-        'vehicle_id'    
+        'availableSeats',   
+        'driver',
+        'origin',
+        'destination'
+
     ];
 
-    public function vehicles()
+    public function cities_origin()
     {
-        return $this->hasMany('App\Models\Vehicle'); 
+        return $this->hasMany('App\Models\City'); 
+    }
+    public function cities_destination()
+    {
+        return $this->hasMany('App\Models\City'); 
     }
 
     public function users()
     {
         return $this->belongsToMany('App\Models\User');
     }
+
+    public function drivers()
+    {
+        return $this->hasMany('App\Models\Driver'); 
+    }
+
+
 }

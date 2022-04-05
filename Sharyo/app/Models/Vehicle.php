@@ -18,8 +18,8 @@ class Vehicle extends Model
         'model',
     ];
 
-    public function trips()
+    public function drivers()
     {
-        return $this->belongsTo(Trip::class);
+        return $this->belongsTo(Driver::class);
     }
 }
