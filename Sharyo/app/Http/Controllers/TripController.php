@@ -7,6 +7,19 @@ use App\Models\Trip;
 
 class TripController extends Controller
 {
+    //indice por defecto
+    public function index()
+    {
+        $trips = Trip::all();
+        return view('trips.index')->with('trips', $trips);
+    }
+
+    // Método para llamar a la vista con el formulario de crear vehiculos
+    public function show()
+    {
+        return view('trips.create');
+    }
+
     // Insertar
     public function insert(Request $request)
     {

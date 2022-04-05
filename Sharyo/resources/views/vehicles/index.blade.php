@@ -2,9 +2,9 @@
 
 @section('contenido')
 <br>
-<a href="/vehicles/callFormCreate" class="btn btn-success">Crear</button></a>
+<a href="/vehicles/show" class="btn btn-success">Crear</button></a>
 <br><br>
-<table class="table table-dark table-striped table-hover">
+    <table class="table table-dark table-striped table-hover" >
         <thead>
             <tr>
                 <th scope="col">PlateNumber</th>

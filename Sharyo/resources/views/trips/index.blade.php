@@ -4,7 +4,7 @@ precio, descripción
 -->
 @section('contenido')
 <br>
-<a href="trips/callFormCreate" class="btn btn-success">Crear</button></a>
+<a href="trips/show" class="btn btn-success">Crear</button></a>
 <br><br>
 <table class="table table-dark table-striped table-hover">
         <thead>
