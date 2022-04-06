@@ -2,8 +2,9 @@
 
 @section('edit vehicle')
     <!-- Formulario para editar vehiculos en la base de datos -->
-    <form action="{{ url('/editVehicles') }}" method="POST">
+    <form action="{{ url('vehicles/edit') }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="mb-3">
             <label class="form-label">Matrícula</label>
             <input type="text" class="form-control" name="plateNumber">

@@ -2,7 +2,7 @@
 
 @section('contenido')
 <br>
-<a href="/vehicles/show" class="btn btn-success">Crear</button></a>
+<a href="/vehicles/create" class="btn btn-success">Crear</a>
 <br><br>
     <table class="table table-dark table-striped table-hover" >
         <thead>
@@ -18,7 +18,7 @@
                 <td>{{ $vehicle->plateNumber }}</td>
                 <td>{{ $vehicle->model }}</td>
                 <td>
-                    <a class="btn btn-primary">Editar</a>
+                    <button onclick="" class="btn btn-primary">Editar</button>
                     <button type="button" class="btn btn-danger">Eliminar</button>
                 </td>
             </tr>

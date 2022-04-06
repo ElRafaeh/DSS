@@ -14,7 +14,7 @@
     <h1>Inicio</h1>
 
       <div class="container">
-        <button class="btn btn-outline-warning" type="btn btn-outline-warning" onclick="window.location='{{ url("/vehicles")}} '">Administrar vehiculos</button>
+        <a class="btn btn-outline-warning" type="btn btn-outline-warning" href="/vehicles">Administrar vehiculos</a>
         <button class="btn btn-outline-warning" type="btn btn-outline-warning" onclick="window.location='{{ url("/trips")}} '">Administrar viajes</button>
 
       </div>

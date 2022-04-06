@@ -8,20 +8,26 @@ use Illuminate\Http\Request;
 class VehicleController extends Controller
 {
     //indice por defecto
-    public function index()
+    public function principal()
     {
         $vehicles = Vehicle::all();
         return view('vehicles.index')->with('vehicles', $vehicles);
     }
 
     // Método para llamar a la vista con el formulario de crear vehiculos
-    public function show()
+    public function showViewCreate()
     {
         return view('vehicles.create');
     }
 
+    // Metodo para devolver la vista de editar
+    public function returnEdit()
+    {
+        return "HOLA";
+    }
+
     // Insertar
-    public function store(Request $request)
+    public function insertarEnBD(Request $request)
     {
         $vehicle = new Vehicle;
 
