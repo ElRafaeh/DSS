@@ -20,7 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
 Route::resource('/vehicles', 'App\Http\Controllers\VehicleController');
+//Route::put('/vehicles/{plateNumber}', [VehicleController::class, 'returnEdit']);
+Route::get('/vehicles', [VehicleController::class, 'principal']);
+Route::get('/vehicles/create', [VehicleController::class, 'showViewCreate']);
+Route::post('vehicles/create', [VehicleController::class, 'insertarEnBD']);
+
 Route::resource('/trips', 'App\Http\Controllers\TripController');
 Route::resource('/users', 'App\Http\Controllers\UserController');
 

@@ -19,7 +19,6 @@ class Trip extends Model
         'driver',
         'origin',
         'destination'
-
     ];
 
     public function cities_origin()
