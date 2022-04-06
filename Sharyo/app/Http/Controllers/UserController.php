@@ -10,7 +10,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(3);
         return view('users.index')->with('users', $users);
     }
 
@@ -22,6 +22,14 @@ class UserController extends Controller
     // Insertar
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'phoneNumber' => 'required|digits:9',
+            'email' => 'required|email:rfc',
+            'password' => 'required|min:5',
+            ]);
+            
         $user = new User;
 
         $user->name = $request->name;
@@ -52,6 +60,13 @@ class UserController extends Controller
     
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'phoneNumber' => 'required|digits:9',
+            'email' => 'required|email:rfc',
+            'password' => 'required|min:5',
+            ]);
         $user = User::findOrFail($id);
         //return response([$user], 200);
             $user->name = $request->name;
