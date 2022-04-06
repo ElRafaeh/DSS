@@ -2,7 +2,7 @@
 
 @section('contenido')
     <br>
-    <a href="/citys/show" class="btn btn-success">Crear</button></a>
+    <a href="/citys/createCity" class="btn btn-success">Crear</button></a>
     <br>
     <br>
     <table class="table table-dark table-striped table-hover" >

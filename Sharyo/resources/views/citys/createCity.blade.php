@@ -3,7 +3,7 @@
 
 @section('contenido')
 
-    <form action="{{ url('/citys') }}" method="POST">
+    <form action="{{ url('/citys/createCity') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label class="form-label">Name</label>

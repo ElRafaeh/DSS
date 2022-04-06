@@ -8,12 +8,12 @@ class CityController extends Controller{
 
     public function index(){
         $citys = City::all();
-        return view('citys.index')->with('citys', $citys);
+        return view('citys.indexCity')->with('citys', $citys);
     }
 
     // Método para llamar a la vista con el formulario de crear vehiculos
     public function show(){
-        return view('citys.create');
+        return view('citys.createCity');
     }
 
     /**
