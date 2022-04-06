@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::resource('/vehicles', 'App\Http\Controllers\VehicleController');
 Route::resource('/trips', 'App\Http\Controllers\TripController');
+Route::resource('/citys', 'App\Http\Controllers\CityController');
 Route::resource('/vehicles', 'App\Http\Controllers\VehicleController');
 
 //cambiar a post?
