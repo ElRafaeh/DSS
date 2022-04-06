@@ -16,6 +16,8 @@
       <div class="container">
         <a class="btn btn-outline-warning" type="btn btn-outline-warning" href="/vehicles">Administrar vehiculos</a>
         <button class="btn btn-outline-warning" type="btn btn-outline-warning" onclick="window.location='{{ url("/trips")}} '">Administrar viajes</button>
+        <button class="btn btn-outline-warning" type="btn btn-outline-warning" onclick="window.location='{{ url("/drivers")}} '">Administrar conductores</button>
+
 
       </div>
 
