@@ -2,7 +2,7 @@
 
 @section('contenido')
     <!-- Formulario para editar vehiculos en la base de datos -->
-    <form action="/users/{{$user->email }}" method="POST">
+    <form action="/users/{{$user->id}}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">

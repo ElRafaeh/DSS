@@ -2,7 +2,7 @@
 
 @section('contenido')
     <!-- Formulario para crear nuevos vehiculos en la base de datos -->
-    <form action="{{ url('/users') }}" method="POST">
+    <form action="{{ url('/users/create') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label class="form-label">Nombre</label>

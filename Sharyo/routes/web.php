@@ -30,7 +30,19 @@ Route::get('/vehicles/create', [VehicleController::class, 'showViewCreate']);
 Route::post('vehicles/create', [VehicleController::class, 'insertarEnBD']);
 
 Route::resource('/trips', 'App\Http\Controllers\TripController');
-Route::resource('/users', 'App\Http\Controllers\UserController');
+
+
+
+//usuarios
+//Route::resource('/users', 'App\Http\Controllers\UserController');
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/create', [UserController::class, 'show']);
+Route::post('users/create', [UserController::class, 'store']);
+Route::get('/users/{id}', [UserController::class, 'edit']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'delete']);
+
+
 
 //cambiar a post?
 /*Route::resource('register', function() {

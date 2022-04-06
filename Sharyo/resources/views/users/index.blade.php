@@ -2,11 +2,12 @@
 
 @section('contenido')
 <br>
-<a href="/users/show" class="btn btn-success">Crear</button></a>
+<a href="/users/create" class="btn btn-success">Crear</button></a>
 <br><br>
     <table class="table table-dark table-striped table-hover" >
         <thead>
             <tr>
+                <th scope="col">id</th>
                 <th scope="col">name</th>
                 <th scope="col">surname</th>
                 <th scope="col">phoneNumber<th>
@@ -16,13 +17,18 @@
         <tbody>
             @foreach ($users as $user)
             <tr>
+                <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->surname }}</td>
                 <td>{{ $user->phoneNumber }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="/users/{{ $user->email }}/edit" class="btn btn-primary">Editar</a>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <form action="/users/{{$user->id}}" method="POST">
+                    <a href="/users/{{ $user->id }}" class="btn btn-primary">Editar</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
