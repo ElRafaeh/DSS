@@ -15,10 +15,8 @@
 
       <div class="container">
         <a class="btn btn-outline-warning" type="btn btn-outline-warning" href="/vehicles">Administrar vehiculos</a>
-        <button class="btn btn-outline-warning" type="btn btn-outline-warning" onclick="window.location='{{ url("/trips")}} '">Administrar viajes</button>
-        <button class="btn btn-outline-warning" type="btn btn-outline-warning" onclick="window.location='{{ url("/drivers")}} '">Administrar conductores</button>
-
-
+        <a class="btn btn-outline-warning" type="btn btn-outline-warning" href="/trips">Administrar viajes</a>
+        <a class="btn btn-outline-warning" type="btn btn-outline-warning" href="/drivers">Administrar conductores</a>
       </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

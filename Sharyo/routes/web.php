@@ -3,6 +3,7 @@
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,11 +24,13 @@ Route::get('/', function () {
 
 
 
-Route::resource('/vehicles', 'App\Http\Controllers\VehicleController');
-//Route::put('/vehicles/{plateNumber}', [VehicleController::class, 'returnEdit']);
+
+// Rutas para los vehiculos
 Route::get('/vehicles', [VehicleController::class, 'principal']);
 Route::get('/vehicles/create', [VehicleController::class, 'showViewCreate']);
-Route::post('vehicles/create', [VehicleController::class, 'insertarEnBD']);
+Route::post('/vehicles/create', [VehicleController::class, 'insertarEnBD']);
+Route::put('/vehicles/edit/{plateNumber}', [VehicleController::class, 'update']);
+Route::get('/vehicles/edit/{plateNumber}', [VehicleController::class, 'returnEdit']);
 
 Route::resource('/trips', 'App\Http\Controllers\TripController');
 
