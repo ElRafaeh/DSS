@@ -46,6 +46,18 @@ Route::get('/drivers/edit/{nif}', [DriverController::class, 'returnEdit']);
 Route::delete('/drivers/delete/{nif}', [DriverController::class, 'delete']);
 
 
+//usuarios
+//Route::resource('/users', 'App\Http\Controllers\UserController');
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/create', [UserController::class, 'show']);
+Route::post('users/create', [UserController::class, 'store']);
+Route::get('/users/{id}', [UserController::class, 'edit']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'delete']);
+Route::get('/users', [UserController::class, 'search']);
+
+
+
 //cambiar a post?
 /*Route::resource('register', function() {
     return view('registro');

@@ -23,7 +23,8 @@ class User extends Authenticatable
         'phoneNumber',
         'email',
     ];
-
+    protected $primaryKey = 'id';
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -39,6 +40,7 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+    
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
