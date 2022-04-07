@@ -20,10 +20,14 @@ class VehicleController extends Controller
         return view('vehicles.create');
     }
 
-    // Metodo para devolver la vista de editar
-    public function returnEdit()
+    // Metodo para llamar a la vista con el formulario de editar vehiculos
+    public function returnEdit($plateNumber)
     {
-        return "HOLA";
+        //$vehicle = Vehicle::where('plateNumber', '=', $plateNumber)->firstOrFail();
+
+        $vehicle = Vehicle::find($plateNumber);
+
+        return view("vehicles.edit")->with('vehicle', $vehicle);
     }
 
     // Insertar
@@ -49,10 +53,7 @@ class VehicleController extends Controller
 
         $vehicle->save();
 
-        return response([
-            'plateNumber'=>(isset($vehicle->plateNumber) ? $vehicle->plateNumber:''),
-            'model'=>(isset($vehicle->model) ? $vehicle->model:'')
-        ], 200);
+        return redirect('/vehicles');
     }
 
     //
@@ -62,10 +63,7 @@ class VehicleController extends Controller
 
         $vehicle->delete();
 
-        return response([
-            'plateNumber'=>(isset($vehicle->plateNumber) ? $vehicle->plateNumber:''),
-            'model'=>(isset($vehicle->model) ? $vehicle->model:'')
-        ], 200);
+        $this->showViewCreate();
     }
 
     //

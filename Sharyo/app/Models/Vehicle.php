@@ -9,6 +9,12 @@ class Vehicle extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'plateNumber';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+
+
     protected $table = 'vehicles';
     /**
      * 

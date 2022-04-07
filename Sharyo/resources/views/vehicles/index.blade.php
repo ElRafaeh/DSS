@@ -18,7 +18,7 @@
                 <td>{{ $vehicle->plateNumber }}</td>
                 <td>{{ $vehicle->model }}</td>
                 <td>
-                    <button onclick="" class="btn btn-primary">Editar</button>
+                    <button type="button" onclick="location.href='{{ url("vehicles/edit/$vehicle->plateNumber") }}'" class="btn btn-primary">Editar</button>
                     <button type="button" class="btn btn-danger">Eliminar</button>
                 </td>
             </tr>

@@ -1,17 +1,22 @@
 @extends('plantillaBase')
 
-@section('edit vehicle')
+@section('contenido')
+
     <!-- Formulario para editar vehiculos en la base de datos -->
-    <form action="{{ url('vehicles/edit') }}" method="POST">
-        @csrf
+    <form action="{{ url("vehicles/edit/$vehicle->plateNumber") }}" method="POST">
         @method('PUT')
-        <div class="mb-3">
-            <label class="form-label">Matrícula</label>
-            <input type="text" class="form-control" name="plateNumber">
-        </div>
+        @csrf
+        
+        <fieldset disabled>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Matrícula</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $vehicle->plateNumber }}">
+            </div>
+        </fieldset>
+
         <div class="mb-3">
             <label class="form-label">Modelo</label>
-            <input type="text" class="form-control" name="model">
+            <input type="text" class="form-control" name="model" value="{{ $vehicle->model }}">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   
