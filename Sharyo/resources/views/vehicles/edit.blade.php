@@ -1,7 +1,7 @@
 @extends('plantillaBase')
 
 @section('contenido')
-
+<div class="container">
     <!-- Formulario para editar vehiculos en la base de datos -->
     <form action="{{ url("vehicles/edit/$vehicle->plateNumber") }}" method="POST">
         @method('PUT')
@@ -20,5 +20,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   
-
+</div>
 @endsection

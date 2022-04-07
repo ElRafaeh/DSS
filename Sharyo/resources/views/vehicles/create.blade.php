@@ -1,6 +1,7 @@
 @extends('plantillaBase')
 
 @section('contenido')
+<div class="container">
     <!-- Formulario para crear nuevos vehiculos en la base de datos -->
     <form action="{{ url('/vehicles/create') }}" method="POST">
         @csrf
@@ -14,5 +15,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Crear</button>
     </form>   
-
+</div>
 @endsection

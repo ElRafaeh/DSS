@@ -1,29 +1,40 @@
 @extends('plantillaBase')
 @section('contenido')
-<br>
-<a href="drivers/show" class="btn btn-success">Crear</button></a>
-<br><br>
-<table class="table table-dark table-striped table-hover">
+<div class="container">
+    <a href="drivers/create" class="btn btn-success">Crear</button></a>
+    <br><br>
+    <table class="table table-dark table-striped table-hover text-center">
         <thead>
             <tr>
                 <th scope="col">NIF</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Experiencia<th>
-              
+                <th scope="col">Experiencia</th>
+                <th scope="col">Vehículo</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($drivers as $drive)
+            @foreach ($drivers as $driver)
             <tr>
-                <td>{{ $drive->nif }}</td>
-                <td>{{ $drive->name }}</td>
-                <td>{{ $drive->experience }}</td>
-
-                    <a class="btn btn-primary">Editar</a>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                <td>{{ $driver->nif }}</td>
+                <td>{{ $driver->name }}</td>
+                <td>{{ $driver->experience }}</td>
+                <td>{{ $driver->vehicle_id }}</td>
+                <td>
+                    <button type="button" onclick="location.href='{{ url("drivers/edit/$driver->nif") }}'" class="btn btn-primary">Editar</button>
+                        
+                    <!-- Button trigger modal -->
+                    <form action="{{ url("drivers/delete/$driver->nif") }}" method='POST' style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection

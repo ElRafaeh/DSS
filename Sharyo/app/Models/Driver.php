@@ -9,6 +9,10 @@ class Driver extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'NIF';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $table = 'drivers';
     /**
      * 
