@@ -17,7 +17,7 @@ class CreateDriversTable extends Migration
             $table->string('nif')->primary();
             $table->string('name');
             $table->integer('experience');
-            $table->string('vehicle_id')->nullable(false);
+            $table->string('vehicle_id')->nullable();
             $table->foreign('vehicle_id')->references('plateNumber')->on('vehicles');
             $table->timestamps();
         });

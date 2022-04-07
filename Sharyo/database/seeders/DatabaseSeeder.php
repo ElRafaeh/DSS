@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call( VehicleSeeder ::class );
+        $this->call( CitySeeder ::class );
+        $this->call( DriverSeeder ::class );
+        $this->call( TripSeeder ::class );
+        //$this->call( UserSeeder ::class );
     }
 }

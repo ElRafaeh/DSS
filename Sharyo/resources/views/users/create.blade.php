@@ -2,6 +2,7 @@
 
 @section('contenido')
     <!-- Formulario para crear nuevos vehiculos en la base de datos -->
+    <div class="container">
     <form action="{{ url('/users/create') }}" method="POST">
         @csrf
         <div class="mb-3">
@@ -26,5 +27,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Crear</button>
     </form>   
-
+</div>
 @endsection

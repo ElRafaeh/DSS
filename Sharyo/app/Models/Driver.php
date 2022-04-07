@@ -9,7 +9,7 @@ class Driver extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'NIF';
+    protected $primaryKey = 'nif';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -21,7 +21,6 @@ class Driver extends Model
         'nif',
         'name',
         'experience',
-        'distance',
         'vehicle_id'
     ];
 

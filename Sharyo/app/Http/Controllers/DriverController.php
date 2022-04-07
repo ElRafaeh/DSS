@@ -33,7 +33,12 @@ class DriverController extends Controller
         $driver->nif = $request->nif;
         $driver->name = $request->name;
         $driver->experience = $request->experience;
-        $driver->vehicle_id = $request->vehicle_id;
+        if($request->vehicle_id == "Elija un vehículo"){
+            $driver->vehicle_id = null;
+        }
+        else{
+            $driver->vehicle_id = $request->vehicle_id;
+        }
         
         $driver->save();
 
@@ -42,13 +47,16 @@ class DriverController extends Controller
 
     public function update(Request $request, $nif){
         $driver = Driver::find($nif);
-
+        
+     
         $driver->name = $request->name;
         $driver->experience = $request->experience;
-        $driver->vehicle_id = $request->vehicle_id;
-
-        return $driver;
-
+        if($request->vehicle_id == "Elija un vehículo"){
+            $driver->vehicle_id = null;
+        }
+        else{
+            $driver->vehicle_id = $request->vehicle_id;
+        }
         $driver->save();
 
         return redirect('/drivers');

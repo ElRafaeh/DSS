@@ -1,6 +1,7 @@
 @extends('plantillaBase')
 
 @section('contenido')
+<div class="container">
 <br>
 <form action="/users" method="GET">
     <div class="form-row">
@@ -13,14 +14,16 @@
 </form>
 <a href="/users/create" class="btn btn-success">Crear</button></a>
 <br><br>
-    <table class="table table-dark table-striped table-hover" >
+    <table style="align-items: center" class="text-center table table-dark table-striped table-hover" >
         <thead>
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">name</th>
                 <th scope="col">surname</th>
-                <th scope="col">phoneNumber<th>
-                <th scope="col">email<th>
+                <th scope="col">phoneNumber</th>
+                <th scope="col">email</th>
+                <th scope="col">acciones</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -53,4 +56,5 @@
     <div class="d-flex justify-content-end">
         {!! $users->links() !!}
     </div>
+</div>
 @endsection

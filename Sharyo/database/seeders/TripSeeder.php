@@ -13,6 +13,6 @@ class TripSeeder extends Seeder
      */
     public function run()
     {
-        //
+  //
     }
 }

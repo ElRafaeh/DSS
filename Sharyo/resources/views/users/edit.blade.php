@@ -2,6 +2,7 @@
 
 @section('contenido')
     <!-- Formulario para editar vehiculos en la base de datos -->
+    <div class="container">
     <form action="/users/{{$user->id}}" method="POST">
         @csrf
         @method('PUT')
@@ -27,5 +28,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   
-
+</div>
 @endsection
