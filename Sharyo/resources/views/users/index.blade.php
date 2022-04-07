@@ -24,6 +24,12 @@
             </tr>
         </thead>
         <tbody>
+            @if(count($users)<=0)
+                <tr>
+                    <td colspan="8">No hay resultados</td>
+
+                </tr>
+            @else
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
@@ -41,6 +47,7 @@
                 </td>
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
