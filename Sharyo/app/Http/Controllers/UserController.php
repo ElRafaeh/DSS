@@ -14,6 +14,17 @@ class UserController extends Controller
         return view('users.index')->with('users', $users);
     }
 
+    public function search(Request $request)
+    {
+        $buscar=$request->get('busqueda');
+        $users = User::where('name', 'LIKE', '%' .$buscar. '%')
+                    ->orWhere('surname', 'LIKE', '%' .$buscar. '%')
+                    ->orderBy('surname', 'asc')
+                    ->paginate(5);
+  
+        return view('users.index',compact('users'));
+    }
+
     public function show()
     {
         return view('users.create');

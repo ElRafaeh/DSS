@@ -2,6 +2,15 @@
 
 @section('contenido')
 <br>
+<form action="/users" method="GET">
+    <div class="form-row">
+        <div class="col-sm-4 my-1">
+            <input type="text" class="form-control" name="busqueda">
+        </div><div class="col-auto my-1">
+            <input type="submit" class="btn btn-primary" value="Buscar">
+        </div>
+    </div>
+</form>
 <a href="/users/create" class="btn btn-success">Crear</button></a>
 <br><br>
     <table class="table table-dark table-striped table-hover" >
