@@ -23,8 +23,6 @@ class VehicleController extends Controller
     // Metodo para llamar a la vista con el formulario de editar vehiculos
     public function returnEdit($plateNumber)
     {
-        //$vehicle = Vehicle::where('plateNumber', '=', $plateNumber)->firstOrFail();
-
         $vehicle = Vehicle::find($plateNumber);
 
         return view("vehicles.edit")->with('vehicle', $vehicle);
@@ -48,7 +46,6 @@ class VehicleController extends Controller
     {
         $vehicle = Vehicle::find($plateNumber);
 
-        $vehicle->plateNumber = $request->plateNumber;
         $vehicle->model = $request->model;
 
         $vehicle->save();
@@ -63,7 +60,7 @@ class VehicleController extends Controller
 
         $vehicle->delete();
 
-        $this->showViewCreate();
+        return redirect('/vehicles');
     }
 
     //
