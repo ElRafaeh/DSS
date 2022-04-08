@@ -77,7 +77,7 @@
         <div class="col-sm-4 my-1">
             <input type="text" class="form-control" name="busqueda">
         </div><div class="col-auto my-1">
-            <input type="submit" class="btn btn-primary" value="Buscar">
+            <input type="submit" class="btn btn-primary" value="Buscar" style="display: inline">
         </div>
     </div>
 </form>
