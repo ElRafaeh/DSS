@@ -1,27 +1,63 @@
 @extends('plantillaBase')
 
-@section('contenido')
-<div class="container">
 
-    <form action="{{ url("/vehicles/sel") }} " >
-        <a href="/vehicles/create" class="btn btn-success">Crear</a>
-        <br><br>
-        <div class="input-group mb-3">
-            <select name="type" class="form-select">
-                <option selected value="model">Ordenar por:</option>
-                <option value="model">Modelo</option>
-                <option value="plateNumber">Matrícula</option>
-            </select>
-            <select name="order" class="form-select">
-                <option selected value="asc">Ordenar en modo:</option>
-                <option value="asc">Ascendente</option>
-                <option value="desc">Descendente</option>
-            </select>
-            
-            <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)">
-            <button type="submit" class="btn btn-info" style="display: inline">Buscar</button>
-        </div>
-    </form>
+
+
+@section('contenido')
+
+<?php
+    try {
+        $params = true;
+        $ordenarPor = $_GET['type'];
+        $ordenarModo = $_GET['order']; 
+        $paginar = $_GET['paginate'];  
+    } catch (Throwable $th) { 
+        $params = false;
+    }      
+?>
+
+<div class="container">
+    @if($params)
+        <form action="{{ url("/vehicles/sel") }} " >
+            <a href="/vehicles/create" class="btn btn-success">Crear</a>
+            <br><br>
+            <div class="input-group mb-3">
+                <select name="type" class="form-select">
+                    <option selected value="{{ $ordenarPor }}"><?php if($ordenarPor == "model")echo "Modelo"; else echo "Matrícula";?></option>
+                    <option value="model">Modelo</option>
+                    <option value="plateNumber">Matrícula</option>
+                </select>
+                <select name="order" class="form-select">
+                    <option selected value="{{ $ordenarModo }}"><?php if($ordenarModo == "asc")echo "Ascendente"; else echo "Descendente";?></option>
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
+                </select>
+                
+                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" required>
+                <button type="submit" class="btn btn-info" style="display: inline">Buscar</button>
+            </div>
+        </form>
+    @else
+        <form action="{{ url("/vehicles/sel") }} " >
+            <a href="/vehicles/create" class="btn btn-success">Crear</a>
+            <br><br>
+            <div class="input-group mb-3">
+                <select name="type" class="form-select">
+                    <option selected value="model">Ordenar por:</option>
+                    <option value="model">Modelo</option>
+                    <option value="plateNumber">Matrícula</option>
+                </select>
+                <select name="order" class="form-select">
+                    <option selected value="asc">Ordenar en modo:</option>
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
+                </select>
+                
+                <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)">
+                <button type="submit" class="btn btn-info" style="display: inline">Buscar</button>
+            </div>
+        </form>
+    @endif
 
     <br>
     <table style="align-items: center" class="text-center table table-dark table-striped table-hover" >
@@ -59,7 +95,7 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-        {!! $vehicles->links()!!}
+        {!! $vehicles->appends(request()->query())->links()!!}
     </div>
 </div>
 @endsection
