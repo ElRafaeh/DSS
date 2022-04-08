@@ -10,7 +10,14 @@ class VehicleController extends Controller
     //indice por defecto
     public function principal()
     {
-        $vehicles = Vehicle::all();
+        $vehicles = Vehicle::orderBy('model','desc')->paginate(3);
+        return view('vehicles.index')->with('vehicles', $vehicles);
+    }
+
+    //indice por defecto
+    public function principalSelected(Request $request)
+    {
+        $vehicles = Vehicle::orderBy($request->type,$request->order)->paginate($request->paginate);
         return view('vehicles.index')->with('vehicles', $vehicles);
     }
 
