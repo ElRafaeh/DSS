@@ -23,14 +23,32 @@
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select">
-                    <option selected value="{{ $ordenarPor }}"><?php if($ordenarPor == "model")echo "Modelo"; else echo "Matrícula";?></option>
-                    <option value="model">Modelo</option>
-                    <option value="plateNumber">Matrícula</option>
+                    <option selected value="{{ $ordenarPor }}">
+                        <?php 
+                            if($ordenarPor == "model"){ echo "Modelo"; $ordenarPor = "plateNumber";}
+                            else{ echo "Matrícula"; $ordenarPor = "model";}
+                        ?>
+                    </option>
+                    <option value="{{ $ordenarPor }}">
+                        <?php 
+                            if($ordenarPor == "model"){ echo "Modelo"; $ordenarPor = "plateNumber";}
+                            else{ echo "Matrícula"; $ordenarPor = "model";}
+                        ?>
+                    </option>
                 </select>
                 <select name="order" class="form-select">
-                    <option selected value="{{ $ordenarModo }}"><?php if($ordenarModo == "asc")echo "Ascendente"; else echo "Descendente";?></option>
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
+                    <option selected value="{{ $ordenarModo }}">
+                        <?php 
+                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "des"; }
+                            else{ echo "Descendente"; $ordenarModo = "asc";}
+                        ?>
+                    </option>
+                    <option value="{{ $ordenarModo }}">
+                        <?php 
+                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "des"; }
+                            else{ echo "Descendente"; $ordenarModo = "asc";}
+                        ?>
+                    </option>
                 </select>
                 
                 <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" required>
@@ -43,12 +61,12 @@
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select">
-                    <option selected value="model">Ordenar por:</option>
+                    <option selected value="">Ordenar por:</option>
                     <option value="model">Modelo</option>
                     <option value="plateNumber">Matrícula</option>
                 </select>
                 <select name="order" class="form-select">
-                    <option selected value="asc">Ordenar en modo:</option>
+                    <option selected value="">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>
