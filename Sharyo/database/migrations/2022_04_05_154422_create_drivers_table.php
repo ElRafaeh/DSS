@@ -18,7 +18,7 @@ class CreateDriversTable extends Migration
             $table->string('name');
             $table->integer('experience');
             $table->string('vehicle_id')->nullable();
-            $table->foreign('vehicle_id')->references('plateNumber')->on('vehicles');
+            $table->foreign('vehicle_id')->references('plateNumber')->on('vehicles')->onDelete('cascade');
             $table->timestamps();
         });
     }

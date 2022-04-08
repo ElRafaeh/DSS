@@ -20,12 +20,12 @@ class UpdateTrips extends Migration
         });
 
         Schema::table('trips', function($table) {
-            $table->string('driver');
-            $table->string('origin');
-            $table->string('destination');
-            $table->foreign('origin')->references('name')->on('cities');
-            $table->foreign('destination')->references('name')->on('cities');
-            $table->foreign('driver')->references('nif')->on('drivers');
+            $table->string('driver')->nullable();
+            $table->string('origin')->nullable();
+            $table->string('destination')->nullable();
+            $table->foreign('origin')->references('name')->on('cities')->onDelete('cascade');
+            $table->foreign('destination')->references('name')->on('cities')->onDelete('cascade');
+            $table->foreign('driver')->references('nif')->on('drivers')->onDelete('cascade');
             
         });
     }

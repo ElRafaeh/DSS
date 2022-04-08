@@ -57,6 +57,7 @@ Route::delete('/drivers/delete/{nif}', [DriverController::class, 'delete']);
 //usuarios
 //Route::resource('/users', 'App\Http\Controllers\UserController');
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/sel', [UserController::class, 'principalSelected']);
 Route::get('/users/create', [UserController::class, 'show']);
 Route::post('users/create', [UserController::class, 'store']);
 Route::get('/users/{id}', [UserController::class, 'edit']);

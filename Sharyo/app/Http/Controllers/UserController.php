@@ -11,9 +11,18 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('surname', 'asc')
-                        ->paginate(5);
+                        ->paginate(5)
+                        ->appends(request()->query());
         return view('users.index')->with('users', $users);
     }
+
+    public function principalSelected(Request $request)
+    {
+          
+        $users = User::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
+        return view('users.index')->with('users', $users);
+    }
+
 
     public function search(Request $request)
     {
