@@ -4,72 +4,84 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Trip;
+use App\Models\Driver;
+use App\Models\City;
 
 class TripController extends Controller
 {
     //indice por defecto
     public function index()
     {
-        $trips = Trip::all();
+        $trips = Trip::orderBy('origin', 'asc')
+                        ->paginate(5);
         return view('trips.index')->with('trips', $trips);
     }
 
     // Método para llamar a la vista con el formulario de crear vehiculos
     public function show()
     {
-        return view('trips.create');
+        $drivers = Driver::all();
+        $cities = City::all();
+        return view('trips.create')->with('cities', $cities)->with('drivers', $drivers);
+    }
+    public function returnEdit($id)
+    {
+        $drivers = Driver::all();
+        $trip = Trip::find($id);
+        $cities = City::all();
+
+        return view("trips.edit")->with('trip', $trip)->with('drivers', $drivers)->with('cities', $cities);
     }
 
     // Insertar
     public function insert(Request $request)
     {
-        $trip = new Trip;
 
-        $trip->id = $request->id;
-        $trip->destination = $request->destination;
+        $request->validate([
+            'origin' => 'required',
+            'destination' => 'required',
+            'availableSeats' => 'required|digits:1',
+            'driver' => 'required',
+            ]);
+
+        $trip = new Trip;
         $trip->origin = $request->origin;
-        $trip->date = $request->date;
-        $trip->distance = $request->distance;        
+        $trip->destination = $request->destination;
+        $trip->date = $request->date;       
         $trip->availableSeats = $request->availableSeats;
-        $trip->vehicle_id = $request->vehicle_id;    
+        if($request->driver == "Elija un conductor"){
+            $trip->driver = null;
+        }
+        else{
+            $trip->driver = $request->driver;
+        }  
 
         $trip->save();
 
-        return response([
-                'id'=>(isset($trip->id) ? $trip->id:''),
-                'destination'=>(isset($trip->destination) ? $trip->destination:''),
-                'origin'=> (isset($trip->origin) ? $trip->origin:''),
-                'date'=> (isset($trip->date) ? $trip->date:''),
-                'distance'=> (isset($trip->distance) ? $trip->distance:''),
-                'availableSeats'=> (isset($trip->availableSeats) ? $trip->availableSeats:''),
-                'vehicle_id'=> (isset($trip->vehicle_id) ? $trip->vehicle_id:''),
-            ], 200);
+        return redirect('/trips');
     }
 
     // Insertar
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'origin' => 'required',
+            'destination' => 'required',
+            'availableSeats' => 'required|digits:1',
+            'driver' => 'required',
+            ]);
         $trip = Trip::find($id);
 
         $trip->id = $request->id;
         $trip->destination = $request->destination;
         $trip->origin = $request->origin;
-        $trip->date = $request->date;
-        $trip->distance = $request->distance;        
+        $trip->date = $request->date;       
         $trip->availableSeats = $request->availableSeats;
-        $trip->vehicle_id = $request->vehicle_id;    
+        $trip->driver = $request->driver;    
 
         $trip->save();
 
-        return response([
-                'id'=>(isset($trip->id) ? $trip->id:''),
-                'destination'=>(isset($trip->destination) ? $trip->destination:''),
-                'origin'=> (isset($trip->origin) ? $trip->origin:''),
-                'date'=> (isset($trip->date) ? $trip->date:''),
-                'distance'=> (isset($trip->distance) ? $trip->distance:''),
-                'availableSeats'=> (isset($trip->availableSeats) ? $trip->availableSeats:''),
-                'vehicle_id'=> (isset($trip->vehicle_id) ? $trip->vehicle_id:''),
-            ], 200);
+        return redirect('/trips');
     }
 
     // Insertar
@@ -77,17 +89,9 @@ class TripController extends Controller
     {
         $trip = Trip::find($id);  
 
-        $trip->delte();
+        $trip->delete();
 
-        return response([
-                'id'=>(isset($trip->id) ? $trip->id:''),
-                'destination'=>(isset($trip->destination) ? $trip->destination:''),
-                'origin'=> (isset($trip->origin) ? $trip->origin:''),
-                'date'=> (isset($trip->date) ? $trip->date:''),
-                'distance'=> (isset($trip->distance) ? $trip->distance:''),
-                'availableSeats'=> (isset($trip->availableSeats) ? $trip->availableSeats:''),
-                'vehicle_id'=> (isset($trip->vehicle_id) ? $trip->vehicle_id:''),
-            ], 200);
+        return redirect('/trips');
     }
 
     public function getAll()

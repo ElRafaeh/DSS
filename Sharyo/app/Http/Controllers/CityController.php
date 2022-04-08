@@ -29,6 +29,11 @@ class CityController extends Controller{
      * Insertar
      */
     public function insertarEnBD(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'state' => 'required',
+            ]);
         $city = new City;
         $city->name = $request->name;
         $city->state = $request->state;
@@ -40,6 +45,10 @@ class CityController extends Controller{
      * Editar
      */
     public function update(Request $request, $name){
+        $request->validate([
+            'name' => 'required',
+            'state' => 'required',
+            ]);
         $city = City::find($name);
 
         $city->name = $request->name;

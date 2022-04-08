@@ -37,7 +37,13 @@ Route::get('/vehicles/edit/{plateNumber}', [VehicleController::class, 'returnEdi
 Route::delete('/vehicles/delete/{plateNumber}', [VehicleController::class, 'delete']);
 
 // Rutas para los viajes
-Route::resource('/trips', 'App\Http\Controllers\TripController');
+Route::get('/trips', [TripController::class, 'index']);
+Route::get('/trips/create', [TripController::class, 'show']);
+Route::post('trips/create', [TripController::class, 'insert']);
+Route::put('/trips/{id}', [TripController::class, 'update']);
+Route::get('/trips/{id}', [TripController::class, 'returnEdit']);
+Route::delete('/trips/{id}', [TripController::class, 'delete']);
+
 
 // Rutas para los conductores
 Route::get('/drivers', [DriverController::class, 'principal']);
