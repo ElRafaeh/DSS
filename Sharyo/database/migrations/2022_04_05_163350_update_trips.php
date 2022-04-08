@@ -21,10 +21,10 @@ class UpdateTrips extends Migration
 
         Schema::table('trips', function($table) {
             $table->string('driver');
-            $table->bigInteger('origin')->unsigned();
-            $table->bigInteger('destination')->unsigned();
-            $table->foreign('origin')->references('id')->on('cities');
-            $table->foreign('destination')->references('id')->on('cities');
+            $table->string('origin');
+            $table->string('destination');
+            $table->foreign('origin')->references('name')->on('cities');
+            $table->foreign('destination')->references('name')->on('cities');
             $table->foreign('driver')->references('nif')->on('drivers');
             
         });

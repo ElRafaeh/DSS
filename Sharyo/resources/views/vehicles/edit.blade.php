@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label class="form-label">Modelo</label>
-            <input type="text" class="form-control" name="model" value="{{ $vehicle->model }}">
+            <input type="text" class="form-control" required name="model" value="{{ $vehicle->model }}">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   

@@ -39,13 +39,13 @@
                 <select name="order" class="form-select">
                     <option selected value="{{ $ordenarModo }}">
                         <?php 
-                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "des"; }
+                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "desc"; }
                             else{ echo "Descendente"; $ordenarModo = "asc";}
                         ?>
                     </option>
                     <option value="{{ $ordenarModo }}">
                         <?php 
-                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "des"; }
+                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "desc"; }
                             else{ echo "Descendente"; $ordenarModo = "asc";}
                         ?>
                     </option>
@@ -78,7 +78,7 @@
     @endif
 
     <br>
-    <table style="align-items: center" class="text-center table table-dark table-striped table-hover" >
+    <table class="text-center table table-dark table-striped table-hover" >
         <thead>
             <tr>
                 <th scope="col">PlateNumber</th>

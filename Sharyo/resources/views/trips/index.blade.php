@@ -7,7 +7,7 @@ precio, descripción
 <br>
 <a href="trips/create" class="btn btn-success">Crear</button></a>
 <br><br>
-<table class="table table-dark table-striped table-hover">
+<table class="text-center   table table-dark table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col">Origen</th>
@@ -38,7 +38,7 @@ precio, descripción
                     <a href="/trips/{{ $trip->id }}" class="btn btn-primary">Editar</a>
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <button type="submit " class="btn btn-danger">Eliminar</button>
                 </form>
                 </td>
             </tr>
