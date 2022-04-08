@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 // Rutas para los vehiculos
 Route::get('/vehicles', [VehicleController::class, 'principal']);
+Route::get('/vehicles/sel', [VehicleController::class, 'principalSelected']);
 Route::get('/vehicles/create', [VehicleController::class, 'showViewCreate']);
 Route::post('/vehicles/create', [VehicleController::class, 'insertarEnBD']);
 Route::put('/vehicles/edit/{plateNumber}', [VehicleController::class, 'update']);

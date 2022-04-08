@@ -14,6 +14,7 @@ class DriverSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('drivers')->insert([
             'nif' => 'Y1981204C',
             'name' => 'Jennifer',

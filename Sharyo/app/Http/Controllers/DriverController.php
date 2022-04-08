@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DriverController extends Controller
 {
     public function principal(){
-        $drivers = Driver::all();
+        $drivers = Driver::orderBy('experience', 'asc')->paginate(4);
         return view('drivers.index')->with('drivers', $drivers);
     }    
 
@@ -48,7 +48,6 @@ class DriverController extends Controller
     public function update(Request $request, $nif){
         $driver = Driver::find($nif);
         
-     
         $driver->name = $request->name;
         $driver->experience = $request->experience;
         if($request->vehicle_id == "Elija un vehículo"){
