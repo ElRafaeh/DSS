@@ -62,9 +62,9 @@ Route::get('/users', [UserController::class, 'search']);
 Route::get('/cities', [CityController::class, 'principal']);
 Route::get('/cities/create', [CityController::class, 'showViewCreate']);
 Route::post('/cities/create', [CityController::class, 'insertarEnBD']);
-Route::put('/cities/edit/{id}', [CityController::class, 'update']);
-Route::get('/cities/edit/{id}', [CityController::class, 'returnEdit']);
-Route::delete('/cities/delete/{id}', [CityController::class, 'delete']);
+Route::put('/cities/edit/{name}', [CityController::class, 'update']);
+Route::get('/cities/edit/{name}', [CityController::class, 'returnEdit']);
+Route::delete('/cities/delete/{name}', [CityController::class, 'delete']);
 
 
 

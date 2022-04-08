@@ -20,8 +20,12 @@
                     <td>{{ $city->name }}</td>
                     <td>{{ $city->state }}</td>
                     <td>
-                    <button type="button" onclick="location.href='{{ url("cities/edit/$city->id") }}'" class="btn btn-primary">Editar</button>
-                        <button type="button" class="btn btn-danger">Eliminar</button>
+                    <form action="/cities/delete/{{$city->name}}" method="POST">
+                        <a href="/cities/edit/{{ $city->name }}" class="btn btn-primary">Editar</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                     </td>
                 </tr>
             @endforeach

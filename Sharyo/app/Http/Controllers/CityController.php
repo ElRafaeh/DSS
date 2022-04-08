@@ -30,21 +30,24 @@ class CityController extends Controller{
      */
     public function insertarEnBD(Request $request){
         $city = new City;
-
-        $city->id = $request->id;
         $city->name = $request->name;
         $city->state = $request->state;
-        
         $city->save();
-
         return redirect('/cities');
     }
 
     /**
      * Editar
      */
-    public function update(Request $request, $id){
-        return $request->input();
+    public function update(Request $request, $name){
+        $city = City::find($name);
+
+        $city->name = $request->name;
+        $city->state = $request->state;
+
+        $city->save();
+
+        return redirect('/cities');
     }
 
     /**
