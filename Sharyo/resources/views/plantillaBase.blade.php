@@ -10,7 +10,7 @@
 
     <title>Administración</title>
   </head>
-  <body>
+  <body style="background-color: hsl(0,0%,95%)">
     <!-- Menu de navegacion -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow" style="background-color: coral; ">
       <div class="container-fluid">

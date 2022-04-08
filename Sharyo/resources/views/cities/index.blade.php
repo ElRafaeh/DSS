@@ -1,11 +1,14 @@
 @extends('plantillaBase')
 
 @section('contenido')
-<div class="container">
-    <br>
-    <a href="/cities/create" class="btn btn-success">Crear</button></a>
-    <br>
-    <br>
+<div class="container"  >
+    <div class="card bg-white mr-4" style="border-radius:15px">
+        <div class="card-header d-lg-flex flex-wrap justify-content-between bg-gray-100" style="border-radius:15px 15px 0px 0px">
+            <div class="d-flex order-lg-0 mb-3 mb-sm-0 mt-2">
+            <a href="/cities/create" class="btn btn-success">Crear</button></a>        
+            </div>
+        </div>
+    
     <table class="table table-dark table-striped table-hover" >
         <thead>
             <tr>
@@ -31,6 +34,8 @@
             @endforeach
         </tbody>
     </table>
+    
+    </div>
     <div class="d-flex justify-content-end">
         {!! $cities->links() !!}
     </div>
