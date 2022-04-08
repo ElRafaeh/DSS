@@ -3,7 +3,7 @@
 <div class="container">
     <a href="drivers/create" class="btn btn-success">Crear</button></a>
     <br><br>
-    <table class="table table-dark table-striped table-hover text-center">
+    <table class="text-center table table-dark table-striped table-hover text-center">
         <thead>
             <tr>
                 <th scope="col">NIF</th>

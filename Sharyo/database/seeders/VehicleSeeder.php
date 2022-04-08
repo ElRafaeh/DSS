@@ -42,6 +42,26 @@ class VehicleSeeder extends Seeder
         DB::table('vehicles')->insert([
             'plateNumber' => '5263 PLK',
             'model' => 'Hola Perdon',
+        ]); 
+
+        DB::table('vehicles')->insert([
+            'plateNumber' => '5263 PLC',
+            'model' => 'Bugatti Veiron',
+        ]);
+
+        DB::table('vehicles')->insert([
+            'plateNumber' => '3456 PLC',
+            'model' => 'Ford Mondeo',
+        ]);
+
+        DB::table('vehicles')->insert([
+            'plateNumber' => '5673 PLC',
+            'model' => 'Opel Astra',
+        ]);
+
+        DB::table('vehicles')->insert([
+            'plateNumber' => '9023 PLC',
+            'model' => 'Peugeot 308',
         ]);
     }
 }
