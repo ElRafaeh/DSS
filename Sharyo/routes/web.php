@@ -4,6 +4,7 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\CityController;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,14 @@ Route::get('/users/{id}', [UserController::class, 'edit']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'delete']);
 Route::get('/users', [UserController::class, 'search']);
+
+// Rutas para las ciudades
+Route::get('/cities', [CityController::class, 'principal']);
+Route::get('/cities/create', [CityController::class, 'showViewCreate']);
+Route::post('/cities/create', [CityController::class, 'insertarEnBD']);
+Route::put('/cities/edit/{id}', [CityController::class, 'update']);
+Route::get('/cities/edit/{id}', [CityController::class, 'returnEdit']);
+Route::delete('/cities/delete/{id}', [CityController::class, 'delete']);
 
 
 

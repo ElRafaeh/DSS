@@ -2,77 +2,60 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class CityController extends Controller{
 
-    public function index(){
-        $citys = City::all();
-        return view('citys.indexCity')->with('citys', $citys);
+    public function principal(){
+        $cities = City::orderBy('name', 'asc')->paginate(4);
+        return view('cities.index')->with('cities', $cities);
     }
 
     // Método para llamar a la vista con el formulario de crear vehiculos
-    public function show(){
-        return view('citys.createCity');
+    public function showViewCreate(){
+        return view('cities.create');
+    }
+
+    public function returnEdit($id)
+    {
+        $city = City::find($id);
+    
+        return view('cities.edit')->with('city', $city);
     }
 
     /**
      * Insertar
      */
-    public function insert(Request $request){
+    public function insertarEnBD(Request $request){
         $city = new City;
 
         $city->id = $request->id;
         $city->name = $request->name;
-        $city->state = $request->state;    
-
+        $city->state = $request->state;
+        
         $city->save();
 
-        return response([
-                'id'=>(isset($city->id) ? $city->id:''),
-                'name'=>(isset($city->name) ? $city->name:''),
-                'state'=> (isset($city->state) ? $city->state:''),
-            ], 200);
+        return redirect('/cities');
     }
 
     /**
      * Editar
      */
     public function update(Request $request, $id){
-        $City = City::find($id);
-
-        $city->id = $request->id;
-        $city->name = $request->name;
-        $city->state = $request->state;    
-
-        $City->save();
-
-        return response(
-            [
-                'id'=>(isset($city->id) ? $city->id:''),
-                'name'=>(isset($city->name) ? $city->name:''),
-                'state'=> (isset($city->state) ? $city->state:''),
-            ], 
-            200
-        );
+        return $request->input();
     }
 
     /**
      * Borrar
      */
     public function delete($id){
-        $city = City::find($id);  
+        $city = City::find($id);
 
-        $city->delte();
+        $city->delete();
 
-        return response(
-            [
-                'id'=>(isset($city->id) ? $city->id:''),
-                'name'=>(isset($city->name) ? $city->name:''),
-                'state'=> (isset($city->state) ? $city->state:''),
-            ], 
-            200
-        );
+        return redirect('/cities');
     }
 
     /**
@@ -80,7 +63,6 @@ class CityController extends Controller{
      */
     public function getAll(){
         $city = City::get();
-
         return response($city, 200);
     }
     
