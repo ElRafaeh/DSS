@@ -18,6 +18,13 @@ class DriverController extends Controller
         return view('drivers.create')->with('vehicles', $vehicles);
     }
 
+    public function principalSelected(Request $request)
+    {
+          
+        $drivers = Driver::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
+        return view('drivers.index')->with('drivers', $drivers);
+    }
+
     // Metodo para llamar a la vista con el formulario de editar vehiculos
     public function returnEdit($nif)
     {

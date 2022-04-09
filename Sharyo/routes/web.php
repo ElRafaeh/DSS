@@ -48,6 +48,7 @@ Route::delete('/trips/{id}', [TripController::class, 'delete']);
 
 // Rutas para los conductores
 Route::get('/drivers', [DriverController::class, 'principal']);
+Route::get('/drivers/sel', [DriverController::class, 'principalSelected']);
 Route::get('/drivers/create', [DriverController::class, 'showViewCreate']);
 Route::post('/drivers/create', [DriverController::class, 'insertarEnBD']);
 Route::put('/drivers/edit/{nif}', [DriverController::class, 'update']);
