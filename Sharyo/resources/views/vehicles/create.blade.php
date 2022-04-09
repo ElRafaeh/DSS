@@ -7,11 +7,11 @@
         @csrf
         <div class="mb-3">
             <label class="form-label">Matrícula</label>
-            <input type="text" class="form-control" name="plateNumber">
+            <input type="text" required class="form-control" name="plateNumber">
         </div>
         <div class="mb-3">
             <label class="form-label">Modelo</label>
-            <input type="text" class="form-control" name="model">
+            <input type="text" required class="form-control" name="model">
         </div>
         <button type="submit" class="btn btn-primary">Crear</button>
     </form>   

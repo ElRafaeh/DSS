@@ -38,6 +38,7 @@ Route::delete('/vehicles/delete/{plateNumber}', [VehicleController::class, 'dele
 
 // Rutas para los viajes
 Route::get('/trips', [TripController::class, 'index']);
+Route::get('/trips/sel', [TripController::class, 'principalSelected']);
 Route::get('/trips/create', [TripController::class, 'show']);
 Route::post('trips/create', [TripController::class, 'insert']);
 Route::put('/trips/{id}', [TripController::class, 'update']);
@@ -57,6 +58,7 @@ Route::delete('/drivers/delete/{nif}', [DriverController::class, 'delete']);
 //usuarios
 //Route::resource('/users', 'App\Http\Controllers\UserController');
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/sel', [UserController::class, 'principalSelected']);
 Route::get('/users/create', [UserController::class, 'show']);
 Route::post('users/create', [UserController::class, 'store']);
 Route::get('/users/{id}', [UserController::class, 'edit']);
@@ -66,6 +68,7 @@ Route::get('/users', [UserController::class, 'search']);
 
 // Rutas para las ciudades
 Route::get('/cities', [CityController::class, 'principal']);
+Route::get('/cities/sel', [CityController::class, 'principalSelected']);
 Route::get('/cities/create', [CityController::class, 'showViewCreate']);
 Route::post('/cities/create', [CityController::class, 'insertarEnBD']);
 Route::put('/cities/edit/{name}', [CityController::class, 'update']);

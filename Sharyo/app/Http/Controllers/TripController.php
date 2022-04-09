@@ -17,6 +17,13 @@ class TripController extends Controller
         return view('trips.index')->with('trips', $trips);
     }
 
+    public function principalSelected(Request $request)
+    {
+          
+        $trips = Trip::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
+        return view('trips.index')->with('trips', $trips);
+    }
+
     // Método para llamar a la vista con el formulario de crear vehiculos
     public function show()
     {

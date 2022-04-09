@@ -15,10 +15,10 @@ class City extends Model
      * 
      */
     protected $fillable = [
-        'id',
         'name',
         'state'
     ];
+
     protected $primaryKey = 'name';
     public $incrementing = false;
     protected $keyType = 'string';
