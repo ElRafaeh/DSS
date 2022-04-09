@@ -14,13 +14,14 @@ precio, descripción
     }      
 ?>
 <div class="container">
+<div class="card bg-white mr-4 p-4" style="border-radius:15px">
 <br>
 @if($params)
         <form action="/trips/sel" >
-            <a href="/trips/create" class="btn btn-success">Crear</a>
+            <a href="/trips/create" class="btn btn-success"  style="border-radius:20px">Crear</a>
             <br><br>
             <div class="input-group mb-3">
-                <select name="type" class="form-select">
+                <select name="type" class="form-select"  style="border-radius:15px">
                     <option selected value="{{ $ordenarPor }}">
                         <?php 
                             if($ordenarPor == "origin"){ echo "Origen"; $ordenarPor = "destination";}
@@ -34,7 +35,7 @@ precio, descripción
                         ?>
                     </option>
                 </select>
-                <select name="order" class="form-select">
+                <select name="order" class="form-select"  style="border-radius:15px">
                     <option selected value="{{ $ordenarModo }}">
                         <?php 
                             if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "desc"; }
@@ -49,28 +50,28 @@ precio, descripción
                     </option>
                 </select>
                 
-                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" required>
-                <button type="submit" class="btn btn-info" style="display: inline">Ordenar</button>
+                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" style="border-radius:15px" placeholder="Número de elementos a paginar (1-10) " required>
+                <button type="submit" class="btn btn-info" style="display: inline; border-radius:20px">Ordenar</button>
             </div>
         </form>
     @else
         <form action="/trips/sel" >
-            <a href="/trips/create" class="btn btn-success">Crear</a>
+            <a href="/trips/create" class="btn btn-success" style="border-radius:20px">Crear</a>
             <br><br>
             <div class="input-group mb-3">
-                <select name="type" class="form-select">
+                <select name="type" class="form-select" style="border-radius:15px">
                     <option selected value="">Ordenar por:</option>
                     <option value="origin">Origen</option>
                     <option value="destination">Destino</option>
                 </select>
-                <select name="order" class="form-select">
+                <select name="order" class="form-select" style="border-radius:15px">
                     <option selected value="">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>
                 
-                <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)">
-                <button type="submit" class="btn btn-info" style="display: inline">Ordenar</button>
+                <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" style="border-radius:15px">
+                <button type="submit" class="btn btn-info" style="display: inline; border-radius:20px">Ordenar</button>
             </div>
         </form>
     @endif
@@ -116,5 +117,6 @@ precio, descripción
     <div class="d-flex justify-content-end">
     {!! $trips->appends(request()->query())->links()!!}
     </div>
+</div>
 </div>
 @endsection

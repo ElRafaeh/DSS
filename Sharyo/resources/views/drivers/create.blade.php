@@ -2,6 +2,7 @@
 
 @section('contenido')
 <div class="container">
+<div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <!-- Formulario para crear nuevos conductores en la base de datos -->
     <form action="{{ url('/drivers/create') }}" method="POST">
         @csrf
@@ -30,6 +31,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Crear</button>
-    </form>   
+    </form>  
+</div> 
 </div>
 @endsection

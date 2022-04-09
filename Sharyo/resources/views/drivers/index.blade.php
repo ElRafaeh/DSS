@@ -1,8 +1,11 @@
 @extends('plantillaBase')
 @section('contenido')
 <div class="container">
-    <a href="drivers/create" class="btn btn-success">Crear</button></a>
-    <br><br>
+<div class="card bg-white mr-4 p-4" style="border-radius:15px">
+            <div class="d-flex order-lg-0 mb-4 mb-sm-0 mt-2 pb-4">
+            <a href="drivers/create" class="btn btn-success" style="border-radius:20px">Crear</button></a>     
+            </div>
+   
     <table class="text-center table table-dark table-striped table-hover text-center">
         <thead>
             <tr>
@@ -46,5 +49,6 @@
     <div class="d-flex justify-content-end">
         {!! $drivers->links() !!}
     </div>
+</div>
 </div>
 @endsection

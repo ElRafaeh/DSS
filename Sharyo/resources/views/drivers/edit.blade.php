@@ -2,6 +2,7 @@
 
 @section('contenido')
 <div class="container">
+<div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <!-- Formulario para editar drivers en la base de datos -->
     <form action="{{ url("drivers/edit/$driver->nif") }}" method="POST">
         @method('PUT')
@@ -37,5 +38,6 @@
 
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   
+</div>
 </div>
 @endsection

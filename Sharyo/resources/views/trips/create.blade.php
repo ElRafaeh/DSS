@@ -3,6 +3,7 @@
 @section('contenido')
     <!-- Formulario para crear nuevos vehiculos en la base de datos -->
     <div class="container">
+    <div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <form action="{{ url('/trips/create') }}" method="POST">
         @csrf
         <div class="mb-3">
@@ -46,5 +47,6 @@
         <button type="submit" class="btn btn-primary">Crear</button>
     </form> 
 </div>  
+</div> 
 
 @endsection

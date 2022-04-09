@@ -3,6 +3,7 @@
 @section('contenido')
     <!-- Formulario para editar vehiculos en la base de datos -->
     <div class="container">
+    <div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <form action="/trips/{{$trip->id}}" method="POST">
         @csrf
         @method('PUT')
@@ -45,7 +46,8 @@
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
-    </form>   
+    </form>  
+</div> 
 </div>
 
 @endsection

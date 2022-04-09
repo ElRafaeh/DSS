@@ -12,10 +12,12 @@
     }      
 ?>
 <div class="container">
+<div class="card bg-white mr-4 p-4" style="border-radius:15px">
 @if($params)
 <br>
 <form action="/users/sel" method="GET" >
-            <a href="/users/create" class="btn btn-success">Crear</a>
+
+            <a href="/users/create" class="btn btn-success" style="border-radius:20px">Crear</a>
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select">
@@ -53,31 +55,33 @@
         </form>
     @else
         <form action="/users/sel" method="GET">
-            <a href="/users/create" class="btn btn-success">Crear</a>
+            <a href="/users/create" class="btn btn-success" style="border-radius:20px">Crear</a>
             <br><br>
             <div class="input-group mb-3">
-                <select name="type" class="form-select">
+                <select name="type" class="form-select" style="border-radius:15px">
                     <option selected value="">Ordenar por:</option>
                     <option value="name">Nombre</option>
                     <option value="surname">Apellido</option>
                 </select>
-                <select name="order" class="form-select">
+                <select name="order" class="form-select" style="border-radius:15px">
                     <option selected value="">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>
                 
-                <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)">
-                <button type="submit" class="btn btn-info" style="display: inline">Ordenar</button>
+                <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" style="border-radius:15px">
+                <button type="submit" class="btn btn-info" style="display: inline; border-radius:20px">Ordenar</button>
             </div>
         </form>
     @endif
 <form action="/users" method="GET">
-    <div class="form-row">
-        <div class="col-sm-4 my-1">
-            <input type="text" class="form-control" name="busqueda">
-        </div><div class="col-auto my-1">
-            <input type="submit" class="btn btn-primary" value="Buscar" style="display: inline">
+    
+    <div class="input-group mb-3">
+        <div class="col-sm-4 my-1 mr-3">
+            <input type="text" class="form-control" name="busqueda" placeholder="Busca..." style="border-radius:15px">
+        </div>
+        <div class="col-auto ml-3 mt-1">
+            <input type="submit" class="btn btn-primary" value="Buscar" style="display: inline; border-radius:20px">
         </div>
     </div>
 </form>
@@ -121,5 +125,6 @@
     <div class="d-flex justify-content-end">
         {!! $users->appends(request()->query())->links() !!}
     </div>
+</div>
 </div>
 @endsection
