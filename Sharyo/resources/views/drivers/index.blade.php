@@ -71,7 +71,7 @@
             </div>
         </form>
     @endif
-   
+   <br>
     <table class="text-center table table-dark table-striped table-hover text-center">
         <thead>
             <tr>
