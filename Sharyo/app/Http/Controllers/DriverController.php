@@ -6,6 +6,7 @@ use App\Models\Driver;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
+
 class DriverController extends Controller
 {
     public function principal(){
