@@ -15,7 +15,7 @@ precio, descripción
 ?>
 <div class="container">
 <div class="card bg-white mr-4 p-4" style="border-radius:15px">
-<br>
+
 @if($params)
         <form action="/trips/sel" >
             <a href="/trips/create" class="btn btn-success"  style="border-radius:20px">Crear</a>
