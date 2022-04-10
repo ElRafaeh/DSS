@@ -1,34 +1,53 @@
 @extends('plantillaBase')
 
-@section('edit vehicle')
+@section('contenido')
     <!-- Formulario para editar vehiculos en la base de datos -->
-    <form action="{{ url('/editTrips') }}" method="POST">
+    <div class="container">
+    <div class="card bg-white mr-4 p-5" style="border-radius:15px">
+    <form action="/trips/{{$trip->id}}" method="POST">
         @csrf
+        @method('PUT')
         <div class="mb-3">
             <label class="form-label">Origen</label>
-            <input type="text" class="form-control" name="origin">
+            <select name="origin" class="form-select" required>
+                <option selected>{{$trip->origin}}</option>
+                
+                @foreach ($cities as $city)
+                    <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Destino</label>
-            <input type="text" class="form-control" name="destination">
+            <select name="destination" class="form-select" required>
+                <option selected>{{$trip->destination}}</option>
+                
+                @foreach ($cities as $city)
+                    <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Fecha</label>
-            <input type="date" class="form-control" name="date">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Distancia</label>
-            <input type="text" class="form-control" name="distance">
+            <input type="date" class="form-control" name="date" value="{{$trip->date}}">
         </div>
         <div class="mb-3">
             <label class="form-label">Sitios disponibles</label>
-            <input type="text" class="form-control" name="availableSeats">
+            <input type="text" class="form-control" name="availableSeats" value="{{$trip->availableSeats}}">
         </div>
         <div class="mb-3">
-            <label class="form-label">Coche</label>
-            <input type="text" class="form-control" name="vehicle_id">
+            <label class="form-label">Conductor</label>
+            <select name="driver" class="form-select" required> 
+                <option selected>{{$trip->driver}}</option>
+                
+                @foreach ($drivers as $driver)
+                    <option value="{{ $driver->nif }}">{{ $driver->nif }}: {{ $driver->name }}</option>
+                @endforeach
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
-    </form>   
+    </form>  
+</div> 
+</div>
 
 @endsection

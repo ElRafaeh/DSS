@@ -3,36 +3,121 @@
 precio, descripción 
 -->
 @section('contenido')
-<br>
-<a href="trips/show" class="btn btn-success">Crear</button></a>
-<br><br>
-<table class="table table-dark table-striped table-hover">
+<?php
+    try {
+        $params = true;
+        $ordenarPor = $_GET['type'];
+        $ordenarModo = $_GET['order']; 
+        $paginar = $_GET['paginate'];  
+    } catch (Throwable $th) { 
+        $params = false;
+    }      
+?>
+<div class="container">
+<div class="card bg-white mr-4 p-4" style="border-radius:15px">
+
+@if($params)
+        <form action="/trips/sel" >
+            <a href="/trips/create" class="btn btn-success"  style="border-radius:20px">Crear</a>
+            <br><br>
+            <div class="input-group mb-3">
+                <select name="type" class="form-select"  style="border-radius:15px">
+                    <option selected value="{{ $ordenarPor }}">
+                        <?php 
+                            if($ordenarPor == "origin"){ echo "Origen"; $ordenarPor = "destination";}
+                            else{ echo "Destino"; $ordenarPor = "origin";}
+                        ?>
+                    </option>
+                    <option value="{{ $ordenarPor }}">
+                        <?php 
+                            if($ordenarPor == "origin"){ echo "Origen"; $ordenarPor = "destination";}
+                            else{ echo "Destino"; $ordenarPor = "origin";}
+                        ?>
+                    </option>
+                </select>
+                <select name="order" class="form-select"  style="border-radius:15px">
+                    <option selected value="{{ $ordenarModo }}">
+                        <?php 
+                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "desc"; }
+                            else{ echo "Descendente"; $ordenarModo = "asc";}
+                        ?>
+                    </option>
+                    <option value="{{ $ordenarModo }}">
+                        <?php 
+                            if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "desc"; }
+                            else{ echo "Descendente"; $ordenarModo = "asc";}
+                        ?>
+                    </option>
+                </select>
+                
+                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" style="border-radius:15px" placeholder="Número de elementos a paginar (1-10) " required>
+                <button type="submit" class="btn btn-info" style="display: inline; border-radius:20px">Ordenar</button>
+            </div>
+        </form>
+    @else
+        <form action="/trips/sel" >
+            <a href="/trips/create" class="btn btn-success" style="border-radius:20px">Crear</a>
+            <br><br>
+            <div class="input-group mb-3">
+                <select name="type" class="form-select" style="border-radius:15px">
+                    <option selected value="">Ordenar por:</option>
+                    <option value="origin">Origen</option>
+                    <option value="destination">Destino</option>
+                </select>
+                <select name="order" class="form-select" style="border-radius:15px">
+                    <option selected value="">Ordenar en modo:</option>
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
+                </select>
+                
+                <input type="number" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" style="border-radius:15px">
+                <button type="submit" class="btn btn-info" style="display: inline; border-radius:20px">Ordenar</button>
+            </div>
+        </form>
+    @endif
+    <br>
+<table class="text-center   table table-dark table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col">Origen</th>
                 <th scope="col">Destino</th>
-                <th scope="col">Fecha<th>
-                <th scope="col">Distancia<th>
-                <th scope="col">Sitios disponibles<th>
-                <th scope="col">Coche<th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Sitios disponibles</th>
+                <th scope="col">Conductor</th>
+                <th scope="col">Acciones</th>
                 
             </tr>
         </thead>
         <tbody>
+        @if(count($trips)<=0)
+                <tr>
+                    <td colspan="8">No hay resultados</td>
+
+                </tr>
+            @else
             @foreach ($trips as $trip)
             <tr>
                 <td>{{ $trip->origin }}</td>
                 <td>{{ $trip->destination }}</td>
                 <td>{{ $trip->date }}</td>
-                <td>{{ $trip->distance }}</td>
                 <td>{{ $trip->availableSeats }}</td>
-                <td>{{ $trip->vehicle_id }}</td>
+                <td>{{ $trip->driver }}</td>
                 <td>
-                    <a class="btn btn-primary">Editar</a>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                <form action="/trips/{{$trip->id}}" method="POST">
+                    <a href="/trips/{{ $trip->id }}" class="btn btn-primary">Editar</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit " class="btn btn-danger">Eliminar</button>
+                </form>
                 </td>
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
+    <div class="d-flex justify-content-end">
+    {!! $trips->appends(request()->query())->links()!!}
+    </div>
+</div>
+</div>
 @endsection

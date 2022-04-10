@@ -12,6 +12,12 @@ class CityController extends Controller{
         $cities = City::orderBy('name', 'asc')->paginate(4);
         return view('cities.index')->with('cities', $cities);
     }
+    public function principalSelected(Request $request)
+    {
+          
+        $cities = City::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
+        return view('cities.index')->with('cities', $cities);
+    }
 
     // Método para llamar a la vista con el formulario de crear vehiculos
     public function showViewCreate(){
@@ -29,22 +35,34 @@ class CityController extends Controller{
      * Insertar
      */
     public function insertarEnBD(Request $request){
-        $city = new City;
 
-        $city->id = $request->id;
+        $request->validate([
+            'name' => 'required',
+            'state' => 'required',
+            ]);
+        $city = new City;
         $city->name = $request->name;
         $city->state = $request->state;
-        
         $city->save();
-
         return redirect('/cities');
     }
 
     /**
      * Editar
      */
-    public function update(Request $request, $id){
-        return $request->input();
+    public function update(Request $request, $name){
+        $request->validate([
+            'name' => 'required',
+            'state' => 'required',
+            ]);
+        $city = City::find($name);
+
+        $city->name = $request->name;
+        $city->state = $request->state;
+
+        $city->save();
+
+        return redirect('/cities');
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\Driver;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
+
 class DriverController extends Controller
 {
     public function principal(){
@@ -16,6 +17,13 @@ class DriverController extends Controller
     public function showViewCreate(){
         $vehicles = Vehicle::all();
         return view('drivers.create')->with('vehicles', $vehicles);
+    }
+
+    public function principalSelected(Request $request)
+    {
+          
+        $drivers = Driver::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
+        return view('drivers.index')->with('drivers', $drivers);
     }
 
     // Metodo para llamar a la vista con el formulario de editar vehiculos

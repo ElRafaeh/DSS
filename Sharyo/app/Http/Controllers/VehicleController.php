@@ -10,14 +10,15 @@ class VehicleController extends Controller
     //indice por defecto
     public function principal()
     {
-        $vehicles = Vehicle::orderBy('model','desc')->paginate(3);
+        $vehicles = Vehicle::orderBy('model','desc')->paginate(6)->appends(request()->query());
         return view('vehicles.index')->with('vehicles', $vehicles);
     }
 
     //indice por defecto
     public function principalSelected(Request $request)
     {
-        $vehicles = Vehicle::orderBy($request->type,$request->order)->paginate($request->paginate);
+          
+        $vehicles = Vehicle::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
         return view('vehicles.index')->with('vehicles', $vehicles);
     }
 
@@ -48,7 +49,7 @@ class VehicleController extends Controller
         return redirect('/vehicles');
     }
 
-    //
+    // Editar elemento
     public function update(Request $request, $plateNumber)
     {
         $vehicle = Vehicle::find($plateNumber);
@@ -60,7 +61,7 @@ class VehicleController extends Controller
         return redirect('/vehicles');
     }
 
-    //
+    // Eliminar elemento
     public function delete($plateNumber)
     {
         $vehicle = Vehicle::find($plateNumber);
@@ -70,7 +71,7 @@ class VehicleController extends Controller
         return redirect('/vehicles');
     }
 
-    //
+    // Funcion auxiliar
     public function getAll()
     {
         $vehicle = Vehicle::get();
