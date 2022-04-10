@@ -85,6 +85,7 @@
         </div>
     </div>
 </form>
+<br>
     <table style="align-items: center" class="text-center table table-dark table-striped table-hover" >
         <thead>
             <tr>

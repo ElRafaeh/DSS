@@ -75,6 +75,7 @@ precio, descripción
             </div>
         </form>
     @endif
+    <br>
 <table class="text-center   table table-dark table-striped table-hover">
         <thead>
             <tr>
