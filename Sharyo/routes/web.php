@@ -24,8 +24,10 @@ Route::get('/', function () {
 });
 
 
-
-
+// Rutas login y register
+Route::get('/mostrarLogin', [UserController::class, 'mostrarLogin']);
+Route::post('login', [UserController::class, 'login']);
+Route::get('/mostrarRegistro', [UserController::class, 'mostrarRegister']);
 
 // Rutas para los vehiculos
 Route::get('/vehicles', [VehicleController::class, 'principal']);
@@ -75,19 +77,4 @@ Route::post('/cities/create', [CityController::class, 'insertarEnBD']);
 Route::put('/cities/edit/{name}', [CityController::class, 'update']);
 Route::get('/cities/edit/{name}', [CityController::class, 'returnEdit']);
 Route::delete('/cities/delete/{name}', [CityController::class, 'delete']);
-
-
-
-//cambiar a post?
-/*Route::resource('register', function() {
-    return view('registro');
-});
-
-
-Route::post('/user', [UserController::class, 'insert']);
-Route::get('/trip', [TripController::class, 'getAll']);
-
-Route::resource('createTrip', function() {
-    return view('createTrip');
-});*/
 
