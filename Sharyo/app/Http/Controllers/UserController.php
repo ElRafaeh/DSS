@@ -24,6 +24,21 @@ class UserController extends Controller
     }
 
 
+    public function mostrarLogin()
+    {
+        return view('loginyRegister.login');
+    }
+
+    public function login(Request $request)
+    {
+
+    }
+
+    public function mostrarRegister()
+    {
+        return view('loginyRegister.register');
+    }
+
     public function search(Request $request)
     {
         $buscar=$request->get('busqueda');
