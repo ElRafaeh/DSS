@@ -17,6 +17,11 @@ class TripController extends Controller
         return view('trips.index')->with('trips', $trips);
     }
 
+    public function listar(){
+        $trips = Trip::all();
+        return view('trips.listado')->with('trips', $trips);
+    }
+
     public function principalSelected(Request $request)
     {
           
@@ -107,4 +112,6 @@ class TripController extends Controller
 
         return response("maricon", 200);
     }
+
+    
 }
