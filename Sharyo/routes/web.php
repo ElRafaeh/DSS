@@ -46,6 +46,7 @@ Route::post('trips/create', [TripController::class, 'insert']);
 Route::put('/trips/{id}', [TripController::class, 'update']);
 Route::get('/trips/{id}', [TripController::class, 'returnEdit']);
 Route::delete('/trips/{id}', [TripController::class, 'delete']);
+Route::get('/viajes', [TripController::class, 'listar']);
 
 
 // Rutas para los conductores
