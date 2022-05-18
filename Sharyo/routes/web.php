@@ -19,15 +19,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rutas principales
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/admin', function() { return view('panelAdministrador'); });
 
 
 // Rutas login y register
 Route::get('/mostrarLogin', [UserController::class, 'mostrarLogin']);
-Route::post('login', [UserController::class, 'login']);
+Route::put('login', [UserController::class, 'login']);
 Route::get('/mostrarRegistro', [UserController::class, 'mostrarRegister']);
+Route::post('/register', [UserController::class, 'register']);
 
 // Rutas para los vehiculos
 Route::get('/vehicles', [VehicleController::class, 'principal']);

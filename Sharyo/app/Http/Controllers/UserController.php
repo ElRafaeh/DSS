@@ -50,20 +50,12 @@ class UserController extends Controller
         return view('users.index',compact('users'));
     }
 
-    public function show()
-    {
-        return view('users.create');
-    }
-
-    // Insertar
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'surname' => 'required',
-            'phoneNumber' => 'required|digits:9',
-            'email' => 'required|email:rfc',
-            'password' => 'required|min:5',
+            'phoneNumber' => 'digits:9',
+            'email' => 'email:rfc|unique:users',
+            'password' => 'min:8|max:20',
             ]);
             
         $user = new User;
@@ -75,14 +67,32 @@ class UserController extends Controller
         $user->password = $request->password;
         
         $user->save();
+    }
 
-        /*return response([
-                'name'=>(isset($user->name) ? $user->name:''),
-                'surname'=>(isset($user->surname) ? $user->surname:''),
-                'phoneNumber'=>(isset($user->phoneNumber) ? $user->phoneNumber:''),
-                'email'=>(isset($user->email) ? $user->email:''),
-                'password'=>(isset($user->password) ? $user->password:'')
-            ], 200);*/
+    public function show()
+    {
+        return view('users.create');
+    }
+
+    // Insertar
+    public function store(Request $request)
+    {
+        $request->validate([
+            'phoneNumber' => 'digits:9',
+            'email' => 'email:rfc|unique:users',
+            'password' => 'min:8|max:20',
+        ]);
+            
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        
+        $user->save();
+
         return redirect('/users');
     }
 
