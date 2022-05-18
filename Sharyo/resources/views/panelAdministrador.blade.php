@@ -8,10 +8,6 @@
   <div class="container">
     <h1 class="jumbotron-heading">Sharyo</h1>
     <p class="lead text-muted"> Tu web para viajar más cómodo gracias a <br>nuestro servicio de conductores.</p>
-    <p>
-      <a href="/users/create" class="btn btn-primary my-2">Login</a>
-      <a href="/users/create" class="btn btn-secondary my-2">Registro</a>
-    </p>
   </div>
 </section>
 

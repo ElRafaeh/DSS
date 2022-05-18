@@ -1,6 +1,16 @@
 @extends('plantillaBase')
 
 @section('contenido')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- Formulario para crear nuevos vehiculos en la base de datos -->
     <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
@@ -8,23 +18,23 @@
         @csrf
         <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="name">
+            <input required type="text" class="form-control" name="name">
         </div>
         <div class="mb-3">
             <label class="form-label">Apellidos</label>
-            <input type="text" class="form-control" name="surname">
+            <input required type="text" class="form-control" name="surname">
         </div>
         <div class="mb-3">
             <label class="form-label">Número de teléfono</label>
-            <input type="text" class="form-control" name="phoneNumber">
+            <input required type="text" class="form-control" name="phoneNumber">
         </div>
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="text" class="form-control" name="email">
+            <input required type="text" class="form-control" name="email">
         </div>
         <div class="mb-3">
             <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password">
+            <input required type="password" class="form-control" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Crear</button>
     </form>   
