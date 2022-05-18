@@ -19,10 +19,10 @@
                     <br>
                     <input type="text" required class="form-control" name="email" placeholder="Email">
                     <br>
-                    <input type="password" required class="form-control" name="admin" placeholder="Contraseña admin (dejar en blanco si no eres admin)">
+                    <input type="password" class="form-control" name="admin" placeholder="Contraseña admin (dejar en blanco si no eres admin)">
                     <br>    
                     <div class="col-auto">
-                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Contraseña">
+                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Contraseña" required>
                     </div>
                     <div class="col-auto">
                         <span id="passwordHelpInline" class="form-text">
@@ -31,7 +31,7 @@
                     </div>
                     <br>
                     <div class="col-auto">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                         <label class="form-check-label" for="exampleCheck1">&nbspAcepto los términos y condiciones legales.</label>
                     </div>
                     <br>
