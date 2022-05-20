@@ -1,4 +1,4 @@
-@extends('plantillaBasePublica')
+@extends('layouts.app')
 
 @section('contenido')
 

@@ -23,22 +23,6 @@ class UserController extends Controller
         return view('users.index')->with('users', $users);
     }
 
-
-    public function mostrarLogin()
-    {
-        return view('loginyRegister.login');
-    }
-
-    public function login(Request $request)
-    {
-
-    }
-
-    public function mostrarRegister()
-    {
-        return view('loginyRegister.register');
-    }
-
     public function search(Request $request)
     {
         $buscar=$request->get('busqueda');
@@ -48,25 +32,6 @@ class UserController extends Controller
                     ->paginate(5);
   
         return view('users.index',compact('users'));
-    }
-
-    public function register(Request $request)
-    {
-        $request->validate([
-            'phoneNumber' => 'digits:9',
-            'email' => 'email:rfc|unique:users',
-            'password' => 'min:8|max:20',
-            ]);
-            
-        $user = new User;
-
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->phoneNumber = $request->phoneNumber;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        
-        $user->save();
     }
 
     public function show()
