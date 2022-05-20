@@ -38,18 +38,19 @@
                 <div class="row justify-content-center  ">
                     <div>
                         <button type="submit" class="btn btn-outline-dark">Iniciar sesión</button>
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('¿Olvidaste tu constraseña?') }}
-                            </a>
-                        @endif
                     </div>
                     <br><br><br>
-                        <div class="col-auto">
+                    <div class="col-auto">
+                        @if (Route::has('password.request'))
                             <span id="passwordHelpInline" class="form-text">
-                                ¿No tienes cuenta? <a href="/register">Registrate</a>
+                                ¿Olvidaste tu contraseña? <a href="{{ route('password.request') }}">Recuperar contraseña</a>
                             </span>
-                        </div>
+                        @endif
+                    <br>
+                        <span id="passwordHelpInline" class="form-text">
+                            ¿No tienes cuenta? <a href="/register">Registrate</a>
+                        </span>
+                    </div>
                 </div>
             </form>
         </div>
