@@ -1,4 +1,4 @@
-@extends('plantillaBase')
+@extends('layouts.app')
 
 @section('contenido')
 <?php

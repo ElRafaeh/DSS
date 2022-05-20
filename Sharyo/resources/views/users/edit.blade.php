@@ -1,4 +1,4 @@
-@extends('plantillaBase')
+@extends('layouts.app')
 
 @section('contenido')
     <!-- Formulario para editar vehiculos en la base de datos -->

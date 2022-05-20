@@ -26,11 +26,12 @@ Route::get('/', function () {
 Route::get('/admin', function() { return view('panelAdministrador'); });
 
 
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 // Rutas login y register
-Route::get('/mostrarLogin', [UserController::class, 'mostrarLogin']);
-Route::put('login', [UserController::class, 'login']);
-Route::get('/mostrarRegistro', [UserController::class, 'mostrarRegister']);
-Route::post('/register', [UserController::class, 'register']);
+//Route::get('/mostrarLogin', [UserController::class, 'mostrarLogin']);
+//Route::get('/mostrarRegistro', [UserController::class, 'mostrarRegister']);
 
 // Rutas para los vehiculos
 Route::get('/vehicles', [VehicleController::class, 'principal']);
@@ -81,4 +82,3 @@ Route::post('/cities/create', [CityController::class, 'insertarEnBD']);
 Route::put('/cities/edit/{name}', [CityController::class, 'update']);
 Route::get('/cities/edit/{name}', [CityController::class, 'returnEdit']);
 Route::delete('/cities/delete/{name}', [CityController::class, 'delete']);
-

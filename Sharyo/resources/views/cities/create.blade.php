@@ -1,5 +1,5 @@
 <!-- la barra superior -->
-@extends('plantillaBase')
+@extends('layouts.app')
 
 @section('contenido')
 <div class="container">
