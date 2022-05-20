@@ -2,18 +2,7 @@
 
 @section('contenido')
 <div class="container">
-    <div class="card bg-white mr-4 p-4" style="border-radius:15px"> 
-    
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    
+    <div class="card bg-white mr-4 p-4" style="border-radius:15px">     
         <div class="text-center">
             <h3>¡Registrate en Sharyo!</h3><br>
             <h6>Escribe tus datos</h4><br>
