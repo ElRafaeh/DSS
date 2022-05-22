@@ -1,6 +1,16 @@
-@extends('layouts.app')
+@extends('admin.plantillaAdmin')
 
 @section('contenido')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <!-- Formulario para editar vehiculos en la base de datos -->
     <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
@@ -25,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password" value="{{$user->password}}">
+            <input type="password" class="form-control" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   

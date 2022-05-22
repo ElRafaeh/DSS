@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.plantillaAdmin')
 
 @section('contenido')
   
@@ -59,12 +59,4 @@
 </div>
 
 </main>
-
-<footer class="text-muted">
-      <div class="container my-4">
-      <section class="jumbotron text-center">
-        <p>Pagina official © Sharyo</p>
-</section>
-      </div>
-    </footer>
 @endsection

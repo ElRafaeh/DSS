@@ -12,8 +12,8 @@
 <body style="background-color: hsl(0,0%,95%)">
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow" style="background-color: coral; ">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url('/admin') }}">
                     {{ config('app.name', 'SHARYO') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -23,9 +23,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @guest
+                        @else
+                            @if (Auth::user()->admin == 1)
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                    <a href="/vehicles" class="nav-link" href="#">Administrar vehículos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="/drivers" class="nav-link" href="#">Administrar conductores</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="/trips" class="nav-link" href="#">Administrar viajes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="/users" class="nav-link" href="#">Administrar usuarios</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a href="/cities" class="nav-link" href="#">Administrar ciudades</a>
+                                    </li>
+                                </ul>
+                            @endif
+                        @endguest
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -48,6 +68,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @guest
+                                    @else
+                                        @if (Auth::user()->admin == 1)
+                                            <a class="dropdown-item" href="{{ url('/') }}">
+                                                {{ __('Salir del panel') }}
+                                            </a>
+                                        @endif
+                                    @endguest
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -71,4 +100,14 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+<footer class="text-muted">
+    <div class="container my-4">
+    <section class="jumbotron text-center">
+      <p>Pagina official © Sharyo</p>
+    </section>
+    </div>
+</footer>
 </html>
+
+
+

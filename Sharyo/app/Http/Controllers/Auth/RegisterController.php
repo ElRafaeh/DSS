@@ -74,6 +74,15 @@ class RegisterController extends Controller
         $user->phoneNumber = $data['phoneNumber'];
         $user->email = $data['email'];
 
+        if($data['admin'] == 'admin1234')
+        {
+            $user->admin = 1;
+        }
+        else
+        {
+            $user->admin = 0;
+        }
+
         $user->save();
 
         return $user;
