@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.plantillaAdmin')
 
 @section('contenido')
 <?php
@@ -93,8 +93,8 @@
                 <th scope="col">surname</th>
                 <th scope="col">phoneNumber</th>
                 <th scope="col">email</th>
+                <th scope="col">admin</th>
                 <th scope="col">acciones</th>
-                
             </tr>
         </thead>
         <tbody>
@@ -110,6 +110,7 @@
                 <td>{{ $user->surname }}</td>
                 <td>{{ $user->phoneNumber }}</td>
                 <td>{{ $user->email }}</td>
+                <td>{{ $user->admin }}</td>
                 <td>
                     <form action="/users/{{$user->id}}" method="POST">
                     <a href="/users/{{ $user->id }}" class="btn btn-primary">Editar</a>

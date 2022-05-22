@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.plantillaAdmin')
 <!--Faltaría cambiar la base de datos con las cosas nuevas que hemos añadido
 precio, descripción 
 -->
