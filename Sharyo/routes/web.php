@@ -49,7 +49,7 @@ Route::post('trips/create', [TripController::class, 'insert'])->middleware('auth
 Route::put('/trips/{id}', [TripController::class, 'update'])->middleware('auth', 'admin');
 Route::get('/trips/{id}', [TripController::class, 'returnEdit'])->middleware('auth', 'admin');
 Route::delete('/trips/{id}', [TripController::class, 'delete'])->middleware('auth', 'admin');
-Route::get('/viajes', [TripController::class, 'listar'])->middleware('auth', 'admin');
+Route::get('/viajes', [TripController::class, 'listar']);
 
 
 // Rutas para los conductores
