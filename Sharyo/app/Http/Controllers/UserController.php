@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -22,7 +23,6 @@ class UserController extends Controller
         $users = User::orderBy($request->type, $request->order)->paginate($request->paginate)->appends(request()->query());
         return view('users.index')->with('users', $users);
     }
-
 
     public function search(Request $request)
     {
@@ -44,12 +44,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'surname' => 'required',
-            'phoneNumber' => 'required|digits:9',
-            'email' => 'required|email:rfc',
-            'password' => 'required|min:5',
-            ]);
+            'phoneNumber' => 'digits:9',
+            'email' => 'email:rfc|unique:users',
+            'password' => 'min:8|max:20',
+        ]);
             
         $user = new User;
 
@@ -57,17 +55,11 @@ class UserController extends Controller
         $user->surname = $request->surname;
         $user->phoneNumber = $request->phoneNumber;
         $user->email = $request->email;
-        $user->password = $request->password;
-        
+        $user->password = Hash::make($request->password);
+        $user->admin = $request->admin;
+
         $user->save();
 
-        /*return response([
-                'name'=>(isset($user->name) ? $user->name:''),
-                'surname'=>(isset($user->surname) ? $user->surname:''),
-                'phoneNumber'=>(isset($user->phoneNumber) ? $user->phoneNumber:''),
-                'email'=>(isset($user->email) ? $user->email:''),
-                'password'=>(isset($user->password) ? $user->password:'')
-            ], 200);*/
         return redirect('/users');
     }
 
@@ -89,13 +81,12 @@ class UserController extends Controller
             'password' => 'required|min:5',
             ]);
         $user = User::findOrFail($id);
-        //return response([$user], 200);
-            $user->name = $request->name;
-            $user->surname = $request->surname;
-            $user->phoneNumber = $request->phoneNumber;
-            $user->email = $request->email;
-            $user->password = $request->password;
-            $user->update();
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->update();
 
         return redirect('/users');
     }
@@ -109,7 +100,6 @@ class UserController extends Controller
         return redirect('/users');
     
     }
-
     //
     public function getAll()
     {

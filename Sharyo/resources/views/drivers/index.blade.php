@@ -1,4 +1,4 @@
-@extends('plantillaBase')
+@extends('admin.plantillaAdmin')
 @section('contenido')
 <?php
     try {
