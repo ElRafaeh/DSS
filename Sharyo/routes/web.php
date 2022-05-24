@@ -68,10 +68,14 @@ Route::get('/users', [UserController::class, 'index'])->middleware('auth', 'admi
 Route::get('/users/sel', [UserController::class, 'principalSelected'])->middleware('auth', 'admin');
 Route::get('/users/create', [UserController::class, 'show'])->middleware('auth', 'admin');
 Route::post('users/create', [UserController::class, 'store'])->middleware('auth', 'admin');
-Route::get('/users/{id}', [UserController::class, 'edit'])->middleware('auth', 'admin');
-Route::put('/users/{id}', [UserController::class, 'update'])->middleware('auth', 'admin');
+Route::get('/users/{id}', [UserController::class, 'edit']);//->middleware('auth', 'admin');
+Route::put('/users/{id}', [UserController::class, 'update']);//->middleware('auth', 'admin');
 Route::delete('/users/{id}', [UserController::class, 'delete'])->middleware('auth', 'admin');
 Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'admin');
+
+//Perfiles
+Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile');
+
 
 // Rutas para las ciudades
 Route::get('/cities', [CityController::class, 'principal'])->middleware('auth', 'admin');
