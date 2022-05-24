@@ -75,6 +75,8 @@ Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'adm
 
 //Perfiles
 Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile');
+Route::get('/profile/{id}','App\Http\Controllers\ProfileController@viewUser');
+Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver');
 
 
 // Rutas para las ciudades
