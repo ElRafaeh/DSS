@@ -8,6 +8,7 @@ use App\Http\Controllers\CityController;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\City;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ use Illuminate\Support\Facades\Auth;
 
 // Rutas principales
 Route::get('/', function () {
-    return view('welcome');
+    $cities = City::all();
+    return view('welcome')->with('cities', $cities);
 });
 
 // Ruta para el admin
