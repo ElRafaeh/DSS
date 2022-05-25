@@ -24,7 +24,7 @@ use App\Models\City;
 // Rutas principales
 Route::get('/', function () {
     $cities = City::all();
-    return view('welcome')->with('cities', $cities);
+    return view('welcome')->with('cities', $cities);//->with('status', $status);
 });
 
 // Ruta para el admin
@@ -75,6 +75,7 @@ Route::get('/users/{id}', [UserController::class, 'edit']);//->middleware('auth'
 Route::put('/users/{id}', [UserController::class, 'update']);//->middleware('auth', 'admin');
 Route::delete('/users/{id}', [UserController::class, 'delete'])->middleware('auth', 'admin');
 Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'admin');
+Route::get('/historial', [UserController::class, 'historial'])->middleware('auth');
 
 //Perfiles
 Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile');
