@@ -1,4 +1,4 @@
-@extends('admin.plantillaAdmin')
+@extends('.plantillaBase')
 @section('contenido')
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -12,7 +12,15 @@
     <!-- Formulario para editar vehiculos en la base de datos -->
     <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
-    <div class="col-4 my-3 pt-3 shadow" style="border-radius:15px">
+    
+    <div class="mb-4 text-center">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </div>
+    <div class="col-4 my-3 pt-3 shadow" style="border-radius:15px; background-color:gray; position:relative; left:50px" >
     <form class="profile" action="/userProfile" method="GET">
         <h3>Nombre: </h3>
             <h6>{{$user->name}}</h6>

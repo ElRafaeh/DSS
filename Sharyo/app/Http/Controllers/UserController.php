@@ -88,7 +88,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->update();
 
-        return redirect('/users');
+        return view('profiles.userPriv')->with('status', 'Su perfil ha sido actualizado con éxito');
     }
     
 

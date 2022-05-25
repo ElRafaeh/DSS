@@ -10,6 +10,7 @@
     </div>
     @endif
     <!-- Formulario para editar vehiculos en la base de datos -->
+       <!-- Cambiar método para que no se vea nif -->
     <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <div class="col-4 my-3 pt-3 shadow" style="border-radius:15px">

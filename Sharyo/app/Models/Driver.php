@@ -21,7 +21,8 @@ class Driver extends Model
         'nif',
         'name',
         'experience',
-        'vehicle_id'
+        'vehicle_id',
+        'photo'
     ];
 
     public function trips()
