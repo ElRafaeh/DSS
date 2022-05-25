@@ -36,7 +36,7 @@ class LoginController extends Controller
         }
         elseif(Auth::user()->admin == '0')
         {
-            return redirect('/home')->with('status', 'Inicio de sesión correcto');
+            return redirect('/')->with('status', 'Inicio de sesión correcto');
         }
     }
 

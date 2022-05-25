@@ -13,7 +13,7 @@
 <body style="background-color: hsl(0,0%,95%)">
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow" style="background-color: coral; ">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     SHARYO
                 </a>
@@ -52,18 +52,26 @@
                                     @else
                                         @if (Auth::user()->admin == 1)
                                             <a class="dropdown-item" href="{{ url('/admin') }}">
-                                                {{ __('Panel de administrador') }}
+                                                <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/settings.png')}}" >
+                                                Panel Admin
                                             </a>
                                         @endif
                                     @endguest
-
+                                    <hr class="dropdown-divider">
                                     <a class="dropdown-item" href="{{ url('/userProfile') }}">
-                                        {{ __('Ver Perfil') }}
+                                            <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/usuario.png')}}" >
+                                            Perfil
                                     </a>
-
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item" href="{{ url('/historial') }}">
+                                        <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/historial.png')}}" >
+                                        Historial
+                                    </a>
+                                    <hr class="dropdown-divider">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/x.png')}}" >
                                         {{ __('Cerrar Sesión') }}
                                     </a>
 
