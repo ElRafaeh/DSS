@@ -11,11 +11,11 @@
 
 <div class="container">
   <div class="card bg-white mr-4 p-5" style="border-radius:15px">
-    <form action="/trips" method="GET">
+    <form action="/viajes" method="GET">
       @csrf
       <div class="input-group" style="border-radius:15px">
         <i class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/origen.png')}}"></i>
-        <select name="origin" class="form-select" required>
+        <select name="origin" class="form-select" >
           <option selected>Elija un origen</option>
         
           @foreach ($cities as $city)
@@ -23,7 +23,7 @@
           @endforeach
         </select>
         <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/destino.png')}}"></span>
-        <select name="destination" class="form-select" required>
+        <select name="destination" class="form-select" >
             <option selected>Elija un destino</option>
             
             @foreach ($cities as $city)
@@ -31,7 +31,7 @@
             @endforeach
         </select>
         <input type="date" class="form-control" name="date">
-        <input type="number" class="form-control" name="availableSeats" min="1" max="4" placeholder="Nº Asientos" required>
+        <input type="number" class="form-control" name="availableSeats" min="1" max="4" placeholder="Nº Asientos" >
       </div>
 
       <br>

@@ -19,7 +19,23 @@ class TripController extends Controller
 
     public function listar(){
         $trips = Trip::all();
-        return view('trips.listado')->with('trips', $trips);
+        $cities = City::all();
+        return view('trips.listado')->with('trips', $trips)->with('cities', $cities);
+    }
+
+    public function search(Request $request)
+    {
+        $cities = City::all();
+        $origen=$request->get('originBuscar');
+        $destino=$request->get('destinationBuscar');
+        $fecha=$request->get('fecha');
+        $trips = Trip::where('origin', 'LIKE', '%' .$origen. '%')
+                    ->orWhere('destination', 'LIKE', '%' .$destino. '%')
+                    ->orWhere('date', 'LIKE', '%' .$fecha. '%')
+                    ->orderBy('date', 'asc')
+                    ->paginate(5);
+  
+        return view('trips.listado',compact('trips'))->with('cities', $cities);
     }
 
     public function principalSelected(Request $request)
