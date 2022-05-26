@@ -14,11 +14,11 @@ class CreateTripUser extends Migration
     public function up()
     {
         Schema::create('trip_user', function (Blueprint $table) {
-            $table->string('email');
-            $table->bigInteger('id')->unsigned();
-            $table->primary(['id','email']);
-            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
-            $table->foreign('id')->references('id')->on('trips')->onDelete('cascade');
+            $table->string('user_email');
+            $table->bigInteger('trip_id')->unsigned();
+            $table->primary(['trip_id','user_email']);
+            $table->foreign('user_email')->references('email')->on('users')->onDelete('cascade');
+            $table->foreign('trip_id')->references('id')->on('trips')->onDelete('cascade');
             $table->timestamps();
             
         });

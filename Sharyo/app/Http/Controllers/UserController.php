@@ -16,9 +16,7 @@ class UserController extends Controller
         $travelService = new ServiceTravel;
         $travels = $travelService->getTripsByEmail(Auth::user()->email);
 
-        return $travels;
-
-        //return view('users.historial')->with('trips', $travels);
+        return view('users.historial')->with('travels', $travels);
     }
 
     public function index()
