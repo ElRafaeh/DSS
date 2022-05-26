@@ -2,18 +2,23 @@
 
 namespace App\CapaServicios;
 
-use App\Models\Travel;
-use Illuminate\Support\Facades\DB;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceTravel
 {   
     // Funcion para devolver los trips que existen en travels asociados a un email
     public function getTripsByEmail($email)
     {
-        $travels = Travel::find($email);
+        $user = User::where('email', Auth::user()->email)->first();
 
-        return $travels;
+        if($user != null)
+        {
+            $trips = $user->trips;
+            return $trips;
+        }
+
+        return null;
     }
 
 

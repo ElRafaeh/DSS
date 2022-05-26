@@ -112,8 +112,8 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->admin }}</td>
                 <td>
-                    <form action="/users/{{$user->id}}" method="POST">
-                    <a href="/users/{{ $user->id }}" class="btn btn-primary">Editar</a>
+                    <form action="/users/{{$user->email}}" method="POST">
+                    <a href="/users/{{ $user->email }}" class="btn btn-primary">Editar</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Eliminar</button>

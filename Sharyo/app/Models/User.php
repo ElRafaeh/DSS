@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $primaryKey = 'email';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -25,7 +29,6 @@ class User extends Authenticatable
         'admin',
         'photo',
     ];
-    protected $primaryKey = 'id';
     
     /**
      * The attributes that should be hidden for serialization.

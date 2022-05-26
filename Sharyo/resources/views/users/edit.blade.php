@@ -14,7 +14,7 @@
     <!-- Formulario para editar vehiculos en la base de datos -->
     <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
-    <form action="/users/{{$user->id}}" method="POST">
+    <form action="/users/{{$user->email}}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">
