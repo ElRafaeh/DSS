@@ -39,9 +39,23 @@
             <label class="form-label">Fecha</label>
             <input type="date" class="form-control" name="date">
         </div>
-        <div class="mb-3">
-            <label class="form-label">Sitios disponibles</label>
-            <input type="text" class="form-control" name="availableSeats">
+        
+        <div class="row g-2">
+            <div class="col-md">
+                <label class="form-label">Sitios disponibles</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/pasajero.png')}}"></span>
+                    <input type="number" min="1" max="4"  class="form-control" name="availableSeats">
+                </div>
+            </div>
+            <div class="col-md">
+                <label class="form-label">Precio</label>
+                <div class="input-group mb-3">
+                    
+                    <span class="input-group-text">€</span>
+                    <input type="number" class="form-control" min="0.00" max="10000.00" name="price" step="0.10" />
+                </div>
+            </div>
         </div>
         <div class="mb-3">
         <label class="form-label">Conductor</label>

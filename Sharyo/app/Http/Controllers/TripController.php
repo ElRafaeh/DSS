@@ -75,7 +75,8 @@ class TripController extends Controller
         $trip = new Trip;
         $trip->origin = $request->origin;
         $trip->destination = $request->destination;
-        $trip->date = $request->date;       
+        $trip->date = $request->date;   
+        $trip->price = $request->price;       
         $trip->availableSeats = $request->availableSeats;
         if($request->driver == "Elija un conductor"){
             $trip->driver = null;
@@ -104,6 +105,7 @@ class TripController extends Controller
         $trip->destination = $request->destination;
         $trip->origin = $request->origin;
         $trip->date = $request->date;       
+        $trip->price = $request->price;  
         $trip->availableSeats = $request->availableSeats;
         $trip->driver = $request->driver;    
 
@@ -120,14 +122,5 @@ class TripController extends Controller
         $trip->delete();
 
         return redirect('/trips');
-    }
-
-    public function getAll()
-    {
-        $trip = Trip::get();
-
-        return response("maricon", 200);
-    }
-
-    
+    }   
 }

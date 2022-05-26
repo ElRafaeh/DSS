@@ -4,6 +4,14 @@
   
 <main role="main">
 
+  <div class="mb-4 text-center">
+    @if (session('status'))
+        <div class="container alert alert-success" style="border-radius:15px" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+</div>
+
 <section class="jumbotron text-center">
   <div class="container">
     <h1 class="jumbotron-heading">Panel De Administrador</h1>
