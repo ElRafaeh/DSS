@@ -10,12 +10,33 @@
         <hr style="margin-top: 1rem; margin-bottom: 3rem; border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);" />
         @if ($travels == null || count($travels) <= 0)
             <div class="text-center">
-                <h5>No encuentro viajes...😢</h5>
+                <h5>No has realizado ningún viaje...😢</h5>
             </div>
         @else
-            @foreach ($travels as $travel)
-                
-            @endforeach
+            <table class="table table-secondary text-center table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Origen</th>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Conductor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @foreach ($travels as $travel)
+                        <tr>
+                            <td>{{ $travel->origin }}</td>
+                            <td>{{ $travel->destination }}</td>
+                            <td>{{ $travel->date }}</td>
+    
+                            <td>{{ $travel->price }} €</td>
+                            <td>{{ $travel->driver }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         @endif
     </div>
 </div>
