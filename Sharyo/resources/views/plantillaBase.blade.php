@@ -51,18 +51,18 @@
                                     @guest
                                     @else
                                         @if (Auth::user()->admin == 1)
-                                            <a class="dropdown-item" href="{{ url('/admin') }}">
+                                            <a class="dropdown-item" href="{{ url('/admin') }}" style="margin-bottom: 10px;">
                                                 <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/settings.png')}}" >
                                                 Panel Admin
                                             </a>
                                         @endif
                                     @endguest
-                                    <hr class="dropdown-divider">
-                                    <a class="dropdown-item" href="{{ url('/userProfile') }}">
+                                    
+                                    <a class="dropdown-item" href="{{ url('/userProfile') }}" style="margin-bottom: 10px;">
                                             <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/usuario.png')}}" >
                                             Perfil
                                     </a>
-                                    <hr class="dropdown-divider">
+                                    
                                     <a class="dropdown-item" href="{{ url('/historial') }}">
                                         <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/historial.png')}}" >
                                         Historial

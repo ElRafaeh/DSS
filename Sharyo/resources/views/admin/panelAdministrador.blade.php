@@ -19,8 +19,8 @@
   </div>
 </section>
 
-<div class="album py-4 bg-light shadow" style="border-radius:15px">
-  <div class="container">
+<div class="container shadow bg-light" style="border-radius:15px">
+  <div class="album py-4">
 
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-3">

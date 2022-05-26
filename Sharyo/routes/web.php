@@ -5,7 +5,6 @@ use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CityController;
-use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\City;
@@ -24,7 +23,8 @@ use App\Models\City;
 // Rutas principales
 Route::get('/', function () {
     $cities = City::all();
-    return view('welcome')->with('cities', $cities);//->with('status', $status);
+        
+    return view('welcome')->with('cities', $cities);
 });
 
 // Ruta para el admin
