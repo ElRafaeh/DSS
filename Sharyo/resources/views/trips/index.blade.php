@@ -83,6 +83,7 @@ precio, descripción
                 <th scope="col">Destino</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Sitios disponibles</th>
+                <th scope="col">Precio</th>
                 <th scope="col">Conductor</th>
                 <th scope="col">Acciones</th>
                 
@@ -101,6 +102,7 @@ precio, descripción
                 <td>{{ $trip->destination }}</td>
                 <td>{{ $trip->date }}</td>
                 <td>{{ $trip->availableSeats }}</td>
+                <td>{{ $trip->price }} €</td>
                 <td>{{ $trip->driver }}</td>
                 <td>
                 <form action="/trips/{{$trip->id}}" method="POST">

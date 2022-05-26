@@ -25,7 +25,7 @@ class AdminMiddleware
             }
             else
             {
-                return redirect('/home')->with('status', 'Acceso denegado, no estás registrado como administrador');
+                return redirect('/')->with('status', 'Acceso denegado, no estás registrado como administrador');
             }
         }
         else

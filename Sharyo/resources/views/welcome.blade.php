@@ -4,7 +4,7 @@
 
 <div class="mb-4 text-center">
   @if (session('status'))
-      <div class="alert alert-success" role="alert">
+      <div class="container alert alert-success" style="border-radius:15px" role="alert">
           {{ session('status') }}
       </div>
   @endif
@@ -39,6 +39,7 @@
             @endforeach
         </select>
         <input type="date" class="form-control" name="date">
+        <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/pasajero.png')}}"></span>
         <input type="number" class="form-control" name="availableSeats" min="1" max="4" placeholder="Nº Asientos" >
       </div>
 
