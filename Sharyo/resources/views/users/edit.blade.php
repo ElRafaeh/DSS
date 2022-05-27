@@ -1,4 +1,4 @@
-@extends('admin.plantillaAdmin')
+@extends('.plantillaBase')
 
 @section('contenido')
     @if ($errors->any())
@@ -34,8 +34,16 @@
             <input type="text" class="form-control" name="email" value="{{$user->email}}">
         </div>
         <div class="mb-3">
+            <label class="form-label">Nueva Contraseña</label>
+            <input type="password" class="form-control" name="newPassword">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Repetir nueva Contraseña</label>
+            <input type="password" class="form-control" name="reNewPassword">
+        </div>
+        <div class="mb-3">
             <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="oldpassword">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   

@@ -63,11 +63,6 @@
                         <input id="password-confirm" placeholder="Confirmar contraseña" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         <br>
                         <div class="col-auto">
-                        <span>Foto de perfil: </span>
-                        <input id="photo" type="file" name="photo">
-                        </div>
-                        <br>
-                        <div class="col-auto">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                             <label class="form-check-label" for="exampleCheck1">&nbspAcepto los términos y condiciones legales.</label>
                         </div>

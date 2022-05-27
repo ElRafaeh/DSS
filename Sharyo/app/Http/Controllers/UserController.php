@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\CapaServicios\ServiceTravel;
+use Image;
 
 class UserController extends Controller
 {
@@ -88,19 +89,59 @@ class UserController extends Controller
             'surname' => 'required',
             'phoneNumber' => 'required|digits:9',
             'email' => 'required|email:rfc',
-            'password' => 'required|min:5',
+            'oldpassword' => 'required',
             ]);
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->phoneNumber = $request->phoneNumber;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->update();
 
-        return view('profiles.userPriv')->with('status', 'Su perfil ha sido actualizado con éxito');
+
+        if(Hash::check($request->oldpassword, Auth::user()->password)){
+            if($request->newPassword){
+                if($request->newPassword == $request->reNewPassword){
+                    $user->password = Hash::make($request->newPassword);
+                }
+                else{
+                    return redirect('/userProfile')->with('alert', "Las contraseñas no coinciden");
+
+                }
+            }
+            $user->update();
+            return redirect('/userProfile')->with('status', "Los cambios se han realizado con éxito");
+        }
+        else{
+            return redirect('/userProfile')->with('alert', "Contraseña incorrecta");
+
+        }
+
+
+        
+    }
+
+    public function uploadPic($email)
+    {
+        $user = User::find($email);
+        return view('profiles.uploadPic')->with('user', $user);
     }
     
+    public function changePic(Request $request, $email)
+    {
+        $request->validate([
+            'photo' => 'required',
+            ]);
+        $user = User::find($email);
+        if($request->hasFile('photo')){
+            $photo=$request->file('photo');
+            $filename=$photo->getClientOriginalName();
+            $ruta=public_path('/public/img/');
+            $photo->move($ruta, $filename);
+            $user->photo=$filename;
+            $user->save();
+            return redirect('/userProfile')->with('status', "Los cambios se han realizado con éxito");
+        }
+    }
 
     //
     public function delete($id)
