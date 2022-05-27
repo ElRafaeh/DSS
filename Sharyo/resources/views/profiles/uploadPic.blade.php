@@ -1,4 +1,4 @@
-@extends('.plantillaBase')
+@extends('plantillaBase')
 
 @section('contenido')
     @if ($errors->any())

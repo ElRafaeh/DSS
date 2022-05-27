@@ -14,13 +14,11 @@
 <div class="container">
 <div class="card bg-white mr-4 p-4" style="border-radius:15px">
 @if($params)
-<br>
 <form action="/users/sel" method="GET" >
-
             <a href="/users/create" class="btn btn-success" style="border-radius:20px">Crear</a>
             <br><br>
             <div class="input-group mb-3">
-                <select name="type" class="form-select">
+                <select name="type" class="form-select" style="border-radius:15px">
                     <option selected value="{{ $ordenarPor }}">
                         <?php 
                             if($ordenarPor == "name"){ echo "Nombre"; $ordenarPor = "surname";}
@@ -34,7 +32,7 @@
                         ?>
                     </option>
                 </select>
-                <select name="order" class="form-select">
+                <select name="order" class="form-select" style="border-radius:15px">
                     <option selected value="{{ $ordenarModo }}">
                         <?php 
                             if($ordenarModo == "asc"){ echo "Ascendente"; $ordenarModo = "desc"; }
@@ -49,8 +47,8 @@
                     </option>
                 </select>
                 
-                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" required>
-                <button type="submit" class="btn btn-info" style="display: inline">Ordenar</button>
+                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" style="border-radius:15px" max="10" placeholder="Número de elementos a paginar (1-10)" required>
+                <button type="submit" class="btn btn-info" style="display: inline; border-radius:20px">Ordenar</button>
             </div>
         </form>
     @else
@@ -59,12 +57,12 @@
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar por:</option>
+                    <option selected value="name">Ordenar por:</option>
                     <option value="name">Nombre</option>
                     <option value="surname">Apellido</option>
                 </select>
                 <select name="order" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar en modo:</option>
+                    <option selected value="asc">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>

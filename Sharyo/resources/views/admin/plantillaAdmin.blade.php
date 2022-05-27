@@ -62,6 +62,7 @@
                                 </li>
                             @endif
                         @else
+                            <img src="{{URL::asset('public/img/' . Auth::user()->photo)}}" style="width:30px; height:30px; border-radius:150px; position:relative; margin-top: 5%;">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
