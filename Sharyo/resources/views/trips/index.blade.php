@@ -60,12 +60,12 @@ precio, descripción
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar por:</option>
+                    <option selected value="origin">Ordenar por:</option>
                     <option value="origin">Origen</option>
                     <option value="destination">Destino</option>
                 </select>
                 <select name="order" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar en modo:</option>
+                    <option selected value="asc">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>
