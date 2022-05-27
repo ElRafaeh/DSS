@@ -21,7 +21,7 @@
             @endif
         </div>
     <h1 style="text-align:center">Perfil de {{$user->name}}</h1>
-    <img src="{{URL::asset('public/img/' . $user->photo)}}" style="width:180px; float:left; border-radius:15px; position:relative; top:90px; left:80px">
+    <img src="{{URL::asset('public/img/' . $user->photo)}}" style="width:150px; height:150px; float:left; border-radius:150px; position:relative; top:90px; left:80px">
     <div class="col-4 my-3 pt-3 shadow" style="width:600px; border-radius:15px; background-color:#E6E3E3; position:relative; left:400px; bottom:90px" >
     <form class="profile" action="/userProfile" method="GET">
         <h2 style="position:relative; left: 70px">Nombre: </h2>

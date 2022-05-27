@@ -17,6 +17,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     SHARYO
                 </a>
+                <img src="{{URL::asset('public/img/' . Auth::user()->photo)}}" style="width:30px; height:30px; border-radius:150px; position:relative; left:1090px">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
