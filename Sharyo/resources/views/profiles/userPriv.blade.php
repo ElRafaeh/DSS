@@ -21,7 +21,7 @@
             @endif
         </div>
     <h1 style="text-align:center">Perfil de {{$user->name}}</h1>
-    <img src="{{URL::asset('img/' . $user->photo)}}" style="width:175px; float:left; border-radius:50%; position:relative; top:70px; left:50px">
+    <img src="{{URL::asset('public/img/' . $user->photo)}}" style="width:180px; float:left; border-radius:15px; position:relative; top:90px; left:80px">
     <div class="col-4 my-3 pt-3 shadow" style="width:600px; border-radius:15px; background-color:#E6E3E3; position:relative; left:400px; bottom:90px" >
     <form class="profile" action="/userProfile" method="GET">
         <h2 style="position:relative; left: 70px">Nombre: </h2>
@@ -35,9 +35,10 @@
     </form>  
 </div>
 <!-- Fin cuadrado datos -->
-<form action="/users/{{$user->id}}" method="POST">
-<a href="/users/{{ $user->id }}" class="btn btn-secondary btn-lg" style="position:relative; left:95px; bottom: 150px">Editar</a>
-
+<form action="/users/{{$user->email}}" method="GET">
+<a href="/users/{{ $user->email }}" class="btn btn-secondary btn-lg" style="position:relative; left:25px; bottom: 150px">Editar</a>
+<a href="/userProfile/pic/{{$user->email}}" class="btn btn-light btn-lg" style="position:relative; left:60px; bottom: 150px">Cambiar foto de perfil</a>
+</form>
 </div>
 </div>
 @endsection

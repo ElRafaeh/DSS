@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\CapaServicios\ServiceTravel;
+use Image;
 
 class UserController extends Controller
 {
@@ -98,9 +99,32 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->update();
 
-        return view('profiles.userPriv')->with('status', 'Su perfil ha sido actualizado con éxito');
+        return view('profiles.userPriv')->with('status', 'Su perfil ha sido actualizado con éxito')->with('user', $user);
+    }
+
+    public function uploadPic($email)
+    {
+        $user = User::find($email);
+        return view('profiles.uploadPic')->with('user', $user);
     }
     
+    public function changePic(Request $request, $email)
+    {
+        $user = User::find($email);
+        if($request->hasFile('photo')){
+            $photo=$request->file('photo');
+            $filename=$photo->getClientOriginalName();
+            $ruta=public_path('/public/img/');
+            $photo->move($ruta, $filename);
+            $user->photo=$filename;
+            $user->save();
+            return view('profiles.userPriv')->with('user', $user)->with('status', 'Su perfil ha sido actualizado con éxito');
+        }
+        else{
+            return response("voy a llorar");
+        }
+
+    }
 
     //
     public function delete($id)

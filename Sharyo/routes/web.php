@@ -71,14 +71,20 @@ Route::get('/users', [UserController::class, 'index'])->middleware('auth', 'admi
 Route::get('/users/sel', [UserController::class, 'principalSelected'])->middleware('auth', 'admin');
 Route::get('/users/create', [UserController::class, 'show'])->middleware('auth', 'admin');
 Route::post('users/create', [UserController::class, 'store'])->middleware('auth', 'admin');
-Route::get('/users/{id}', [UserController::class, 'edit']);//->middleware('auth', 'admin');
-Route::put('/users/{id}', [UserController::class, 'update']);//->middleware('auth', 'admin');
+Route::get('/users/{id}', [UserController::class, 'edit'])->middleware('auth');
+Route::put('/users/{id}', [UserController::class, 'update'])->middleware('auth');
+Route::get('/userProfile/pic/{id}',[UserController::class, 'uploadPic'])->middleware('auth');
+Route::put('/userProfile/changePic/{id}', [UserController::class, 'changePic'])->middleware('auth');
 Route::delete('/users/{id}', [UserController::class, 'delete'])->middleware('auth', 'admin');
 Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'admin');
 Route::get('/historial', [UserController::class, 'historial'])->middleware('auth');
 
 //Perfiles
 Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile');
+
+//Route::put('/userProfile/pic/{{id}}', 'App\Http\Controllers\ProfileController@cambiarFoto');
+ 
+
 Route::get('/profile/{email}','App\Http\Controllers\ProfileController@viewUser');
 Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver');
 

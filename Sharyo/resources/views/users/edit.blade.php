@@ -1,4 +1,4 @@
-@extends('admin.plantillaAdmin')
+@extends('.plantillaBase')
 
 @section('contenido')
     @if ($errors->any())
