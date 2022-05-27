@@ -19,6 +19,11 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('alert'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('alert') }}
+                </div>
+            @endif
         </div>
     <h1 style="text-align:center">Perfil de {{$user->name}}</h1>
     <img src="{{URL::asset('public/img/' . $user->photo)}}" style="width:150px; height:150px; float:left; border-radius:150px; position:relative; top:90px; left:80px">
