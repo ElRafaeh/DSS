@@ -18,7 +18,7 @@
         Fecha: {{ $trip->date }} <br>
         Asientos: {{ $trip->availableSeats }}<br>
         Precio: {{ $trip->price }}€ <br>
-        <a href="/">Conductor: {{ $trip->driver }}</a>
+        <a href="/profile/driver/{{$trip->driver}}">Conductor: {{ $trip->driver }}</a>
         
 
     </div>
