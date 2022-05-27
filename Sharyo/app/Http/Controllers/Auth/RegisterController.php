@@ -75,19 +75,7 @@ class RegisterController extends Controller
         $user->password = Hash::make($data['password']);
         $user->phoneNumber = $data['phoneNumber'];
         $user->email = $data['email'];
-
-        if($data->hasFile('photo')){   
-            $file = $data['photo'];
-            $nombre = $file->getClientOriginalName();
-            $file->move(public_path() . '/img', $nombre);
-            $user->photo=$nombre; 
-
-        }
-        else{
-            $user->photo= 'public/img/userPic.png';
-        }
-
-
+        
         if($data['admin'] == 'admin1234')
         {
             $user->admin = 1;
