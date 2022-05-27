@@ -23,22 +23,22 @@
       @csrf
       <div class="input-group" style="border-radius:15px">
         <i class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/origen.png')}}"></i>
-        <select name="origin" class="form-select" >
-          <option selected>Elija un origen</option>
+        <select name="originBuscar" class="form-select" >
+          <option selected>¿A donde quieres viajar?</option>
         
           @foreach ($cities as $city)
               <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
           @endforeach
         </select>
         <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/destino.png')}}"></span>
-        <select name="destination" class="form-select" >
-            <option selected>Elija un destino</option>
+        <select name="destinationBuscar" class="form-select" >
+            <option selected>¿Desde donde?</option>
             
             @foreach ($cities as $city)
                 <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
             @endforeach
         </select>
-        <input type="date" class="form-control" name="date">
+        <input type="date" class="form-control" name="fecha">
         <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/pasajero.png')}}"></span>
         <input type="number" class="form-control" name="availableSeats" min="1" max="4" placeholder="Nº Asientos" >
       </div>
