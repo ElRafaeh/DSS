@@ -37,7 +37,7 @@
                 <div class="input-group">
                     @foreach ($trips as $trip)
                     <div class="card text-white bg-secondary mb-3" style=" margin-right: 2rem; max-width: 18rem; border-radius:15px">
-                    <a class="card-block stretched-link text-decoration-none" style="color: #fdfdfd;" href>
+                    <a class="card-block stretched-link text-decoration-none" style="color: #fdfdfd;" href="/viaje/{{$trip->id}}">
                         <div class="card-header">{{ $trip->origin }} - {{ $trip->destination }}</div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $trip->price }} €</h5>
