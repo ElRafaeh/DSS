@@ -38,6 +38,12 @@ class TripController extends Controller
         return view('trips.listado',compact('trips'))->with('cities', $cities);
     }
 
+    public function perfil($id){
+        $trip = Trip::find($id);
+
+        return view('trips.viaje')->with('trip', $trip);
+    }
+
     public function principalSelected(Request $request)
     {
           
