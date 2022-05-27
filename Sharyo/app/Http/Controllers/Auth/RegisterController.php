@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+
 
 class RegisterController extends Controller
 {
@@ -73,6 +75,18 @@ class RegisterController extends Controller
         $user->password = Hash::make($data['password']);
         $user->phoneNumber = $data['phoneNumber'];
         $user->email = $data['email'];
+
+        if($data->hasFile('photo')){   
+            $file = $data['photo'];
+            $nombre = $file->getClientOriginalName();
+            $file->move(public_path() . '/img', $nombre);
+            $user->photo=$nombre; 
+
+        }
+        else{
+            $user->photo= 'public/img/userPic.png';
+        }
+
 
         if($data['admin'] == 'admin1234')
         {
