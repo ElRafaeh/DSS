@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\CapaServicios\ServiceTravel;
 
 class UserController extends Controller
 {
+    public function historial()
+    {
+        $travelService = new ServiceTravel;
+        $travels = $travelService->getTripsByEmail(Auth::user()->email);
+
+        return view('users.historial')->with('travels', $travels);
+    }
 
     public function index()
     {

@@ -2,7 +2,7 @@
 
 @section('contenido')
 <div class="container">
-    <div class="card bg-white mr-4 p-4" style="border-radius:15px">     
+    <div class="card bg-white mr-4 p-4 shadow-sm" style="border-radius:15px">     
         <div class="text-center">
             <h3>¡Registrate en Sharyo!</h3><br>
             <h6>Escribe tus datos</h4><br>

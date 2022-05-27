@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call( DriverSeeder ::class );
         $this->call( TripSeeder ::class );
         $this->call( UserSeeder ::class );
+        $this->call( TravelSeeder ::class );
     }
 }

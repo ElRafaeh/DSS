@@ -5,7 +5,6 @@ use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CityController;
-use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\City;
@@ -24,6 +23,7 @@ use App\Models\City;
 // Rutas principales
 Route::get('/', function () {
     $cities = City::all();
+        
     return view('welcome')->with('cities', $cities);
 });
 
@@ -75,10 +75,11 @@ Route::get('/users/{id}', [UserController::class, 'edit']);//->middleware('auth'
 Route::put('/users/{id}', [UserController::class, 'update']);//->middleware('auth', 'admin');
 Route::delete('/users/{id}', [UserController::class, 'delete'])->middleware('auth', 'admin');
 Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'admin');
+Route::get('/historial', [UserController::class, 'historial'])->middleware('auth');
 
 //Perfiles
 Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile');
-Route::get('/profile/{id}','App\Http\Controllers\ProfileController@viewUser');
+Route::get('/profile/{email}','App\Http\Controllers\ProfileController@viewUser');
 Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver');
 
 

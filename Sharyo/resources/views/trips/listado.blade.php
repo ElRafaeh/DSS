@@ -2,7 +2,7 @@
 
 @section('contenido')
 <div class="container">
-    <div class="card bg-white mr-4 p-5" style="border-radius:15px">
+    <div class="card bg-white mr-4 p-5 shadow-sm" style="border-radius:15px">
         <form action="/viajes" method="GET">
             <div class="input-group mb-3 pb-5">
                 @csrf
@@ -40,7 +40,7 @@
                     <a class="card-block stretched-link text-decoration-none" style="color: #fdfdfd;" href>
                         <div class="card-header">{{ $trip->origin }} - {{ $trip->destination }}</div>
                         <div class="card-body">
-                            <h5 class="card-title">20€</h5>
+                            <h5 class="card-title">{{ $trip->price }} €</h5>
                             <p class="card-text">
                                 Fecha: {{ $trip->date }} <br>
                                 {{ $trip->availableSeats }} sitios disponibles

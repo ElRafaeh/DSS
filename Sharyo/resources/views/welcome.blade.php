@@ -2,6 +2,14 @@
 
 @section('contenido')
 
+<div class="mb-4 text-center">
+  @if (session('status'))
+      <div class="container alert alert-success" style="border-radius:15px" role="alert">
+          {{ session('status') }}
+      </div>
+  @endif
+</div>
+
 <section class="jumbotron text-center">
   <div class="container">
     <h1 class="jumbotron-heading">Sharyo</h1>
@@ -10,7 +18,7 @@
 </section>
 
 <div class="container">
-  <div class="card bg-white mr-4 p-5" style="border-radius:15px">
+  <div class="card bg-white mr-4 p-5 shadow-sm" style="border-radius:15px">
     <form action="/viajes" method="GET">
       @csrf
       <div class="input-group" style="border-radius:15px">
@@ -31,6 +39,7 @@
             @endforeach
         </select>
         <input type="date" class="form-control" name="date">
+        <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/pasajero.png')}}"></span>
         <input type="number" class="form-control" name="availableSeats" min="1" max="4" placeholder="Nº Asientos" >
       </div>
 
@@ -39,8 +48,10 @@
           <button type="submit" class="btn btn-primary">Buscar viajes</button>
       </div>
     </form>
-
     <br>
+    <hr style="margin-top: 1rem; margin-bottom: 3rem; border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);" />
+
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card border-0">

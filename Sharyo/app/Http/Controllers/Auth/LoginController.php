@@ -32,11 +32,13 @@ class LoginController extends Controller
     {
         if(Auth::user()->admin == '1')
         {
-            return redirect('/admin')->with('status', 'Bienvenido Administrador');
+            $name = Auth::user()->name;
+            return redirect('/admin')->with('status', "Bienvenido administrador $name");
         }
         elseif(Auth::user()->admin == '0')
         {
-            return redirect('/home')->with('status', 'Inicio de sesión correcto');
+            $name = Auth::user()->name;
+            return redirect('/')->with('status', "Inicio de sesión correcto. ¡Bienvenido $name!");
         }
     }
 
