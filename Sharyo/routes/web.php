@@ -81,9 +81,9 @@ Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'adm
 Route::get('/historial', [UserController::class, 'historial'])->middleware('auth');
 
 //Perfiles
-Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile')->middleware('auth');;
-Route::get('/profile/{email}','App\Http\Controllers\ProfileController@viewUser')->middleware('auth');;
-Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver')->middleware('auth');;
+Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile')->middleware('auth');
+Route::get('/profile/{email}','App\Http\Controllers\ProfileController@viewUser')->middleware('auth');
+Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver')->middleware('auth');
 
 
 // Rutas para las ciudades
