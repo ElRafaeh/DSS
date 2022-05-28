@@ -27,7 +27,7 @@
                 </select>
                 &nbsp&nbsp
                 <select name="destinationBuscar" class="form-select" style="border-radius:15px">
-                    <option hidden selected>¿Desde donde?</option>
+                    <option hidden selected>Destino</option>
                     @foreach ($cities as $city)
                         <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
                     @endforeach
@@ -45,7 +45,7 @@
             <div class="input-group mb-3 pb-5">
                 @csrf
                 <select name="originBuscar" class="form-select" style="border-radius:15px">
-                    <option hidden selected >¿A donde quieres viajar?</option>
+                    <option hidden selected >Origen</option>
                     @foreach ($cities as $city)
                         <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
                     @endforeach
@@ -53,7 +53,7 @@
                 </select>
                 &nbsp&nbsp
                 <select name="destinationBuscar" class="form-select" style="border-radius:15px">
-                    <option hidden selected>¿Desde donde?</option>
+                    <option hidden selected>Destino</option>
                     @foreach ($cities as $city)
                         <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
                     @endforeach
