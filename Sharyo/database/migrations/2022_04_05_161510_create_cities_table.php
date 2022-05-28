@@ -16,6 +16,7 @@ class CreateCitiesTable extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->string('name')->primary();
             $table->string('state');
+            $table->string('photo')->default('alicante.jpg');
             $table->timestamps();
         });
     }

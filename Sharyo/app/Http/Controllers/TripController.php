@@ -30,7 +30,7 @@ class TripController extends Controller
         $destino=$request->get('destinationBuscar');
         $fecha=$request->get('fecha');
         $trips = Trip::where('origin', 'LIKE', '%' .$origen. '%')
-                    ->orWhere('destination', 'LIKE', '%' .$destino. '%')
+                    ->where('destination', 'LIKE', '%' .$destino. '%')
                     ->orWhere('date', 'LIKE', '%' .$fecha. '%')
                     ->orderBy('date', 'asc')
                     ->paginate(5);

@@ -16,7 +16,8 @@ class City extends Model
      */
     protected $fillable = [
         'name',
-        'state'
+        'state',
+        'photo'
     ];
 
     protected $primaryKey = 'name';
