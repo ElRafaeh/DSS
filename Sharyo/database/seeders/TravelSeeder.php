@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 
 
@@ -31,6 +31,10 @@ class TravelSeeder extends Seeder
             'trip_id' => '4' 
         ]);
 
+        DB::table('trip_user')->insert([
+            'user_email' => 'bustosmorenorafael@gmail.com',   
+            'trip_id' => '2' 
+        ]);
         
     }
 }

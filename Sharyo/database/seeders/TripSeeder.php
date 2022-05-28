@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 class TripSeeder extends Seeder
 {
@@ -24,7 +24,7 @@ class TripSeeder extends Seeder
       ]);
 
       DB::table('trips')->insert([
-        'date' => '03/06/2022',
+        'date' => '02/06/2022',
         'availableSeats' => '1',   
         'driver' => '49627353T',
         'origin' => 'Jaén',
