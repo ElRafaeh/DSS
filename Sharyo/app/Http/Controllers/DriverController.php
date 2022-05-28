@@ -49,7 +49,7 @@ class DriverController extends Controller
         $driver->nif = $request->nif;
         $driver->name = $request->name;
         $driver->experience = $request->experience;
-        $driver->photo = $request->photo;
+        if($request->photo != "") $driver->photo = $request->photo;
         if($request->vehicle_id == "Elija un vehículo"){
             $driver->vehicle_id = null;
         }
@@ -73,7 +73,7 @@ class DriverController extends Controller
         
         $driver->name = $request->name;
         $driver->experience = $request->experience;
-        $driver->photo = $request->photo;
+        if($request->photo != "") $driver->photo = $request->photo;
         if($request->vehicle_id == "Elija un vehículo"){
             $driver->vehicle_id = null;
         }
