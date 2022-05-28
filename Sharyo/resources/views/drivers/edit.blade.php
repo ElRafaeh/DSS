@@ -26,12 +26,12 @@
 
         <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="name" value="{{ $driver->name }}">
+            <input type="text" class="form-control" name="name" value="{{ $driver->name }}" required>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Experiencia</label>
-            <input type="text" class="form-control" name="experience" value="{{ $driver->experience }}">
+            <input type="number" class="form-control" name="experience" value="{{ $driver->experience }}" required>
         </div>
 
         <div class="mb-3">

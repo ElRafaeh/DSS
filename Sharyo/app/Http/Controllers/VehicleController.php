@@ -39,6 +39,7 @@ class VehicleController extends Controller
     // Insertar
     public function insertarEnBD(Request $request)
     {
+        $request->validate(['plateNumber' => 'digits:8 | unique:vehicles']);
         $vehicle = new Vehicle;
 
         $vehicle->plateNumber = $request->plateNumber;
