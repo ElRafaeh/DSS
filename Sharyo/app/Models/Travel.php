@@ -15,6 +15,6 @@ class Travel extends Model
      */
     protected $fillable = [
         'email',
-        'tripID',   
+        'id',   
     ];
 }

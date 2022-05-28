@@ -25,14 +25,15 @@
                 <a  href="/profile/driver/{{$trip->driver}}">Conductor: {{ $trip->driver }}</a>
             </div>
             <div style=" padding: 30px;">
-                <p>Precio: {{ $trip->price }}€ </p>
+                <p>Precio: {{ $trip->price }}€</p>
                 @guest
                     <button type="button" class="btn btn-success"><a href="/login" style="color:white ;text-decoration: none; ">Reservar</a></button>
                 @else
-                    <form action="{{ url('/viaje/$trip->id') }}" method="POST">
+                    <form action="{{ url('/viaje/{$trip->id}') }}" method="POST">
+                        @csrf
                         <input name="id" type="hidden" value="{{$trip->id}}">
-                        <input name="email" type="hidden" value="{{ Auth::user()->email }}">
-                        <button type="button" class="btn btn-success">Reservar</button>
+                        <input name="email" type="hidden" value="{{Auth::user()->email}}">
+                        <button type="submit" class="btn btn-success">Reservar</button>
                     </form>
                 @endguest
                 

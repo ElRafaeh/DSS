@@ -15,6 +15,10 @@ class TravelController extends Controller
         $travel->email = $request->email;
         $travel->id = $request->id;
 
+        $trip = Trip::find($request->id);
+        $trip->availableSeats = $trip->availableSeats-1;
+        $trip->save();
+
         $travel->save();
         return redirect('/historial');
     }
