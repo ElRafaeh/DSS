@@ -1,8 +1,10 @@
 @extends('plantillaBase')
 
 @section('contenido')
+
+<div class="container">
     @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" style="border-radius:20px">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -10,7 +12,6 @@
         </ul>
     </div>
     @endif
-    <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <form enctype="multipart/form-data" action="/userProfile/changePic/{{$user->email}}" method="POST">
     @csrf

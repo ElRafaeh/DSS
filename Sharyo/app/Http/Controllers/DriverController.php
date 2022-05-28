@@ -37,6 +37,12 @@ class DriverController extends Controller
     }
 
     public function insertarEnBD(Request $request){
+        $request->validate(
+            [
+                'nif' => 'digits:9 | unique:drivers'
+            ]
+            );
+
         $driver = new Driver;
 
         $driver->nif = $request->nif;

@@ -1,7 +1,11 @@
 @extends('plantillaBase')
 @section('contenido')
-    @if ($errors->any())
-    <div class="alert alert-danger">
+
+    <!-- Formulario para editar vehiculos en la base de datos -->
+       <!-- Cambiar método para que no se vea nif -->
+    <div class="container">
+        @if ($errors->any())
+    <div class="alert alert-danger" style="border-radius:20px">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -9,9 +13,6 @@
         </ul>
     </div>
     @endif
-    <!-- Formulario para editar vehiculos en la base de datos -->
-       <!-- Cambiar método para que no se vea nif -->
-    <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
     <h1 style="text-align:center">Perfil de {{$driver->name}}</h1>
     <img src="{{URL::asset('public/img/' . $driver->photo)}}" style="width:150px; height:150px; float:left; border-radius:150px; position:relative; top:90px; left:80px">

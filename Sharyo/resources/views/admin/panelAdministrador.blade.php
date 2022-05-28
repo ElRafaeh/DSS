@@ -6,7 +6,7 @@
 
   <div class="mb-4 text-center">
     @if (session('status'))
-        <div class="container alert alert-success" style="border-radius:15px" role="alert">
+        <div class="container alert alert-success" style="border-radius:20px" role="alert">
             {{ session('status') }}
         </div>
     @endif

@@ -55,7 +55,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'phoneNumber' => 'digits:9',
+            'phoneNumber' => 'digits:9|numeric',
             'email' => 'email:rfc|unique:users',
             'password' => 'min:8|max:20',
         ]);
@@ -87,8 +87,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'phoneNumber' => 'required|digits:9',
-            'email' => 'required|email:rfc',
+            'phoneNumber' => 'required|digits:9|numeric',
             'oldpassword' => 'required',
             ]);
         $user = User::findOrFail($id);
