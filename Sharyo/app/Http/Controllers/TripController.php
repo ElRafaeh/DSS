@@ -40,7 +40,8 @@ class TripController extends Controller
 
     public function perfil($id){
         $trip = Trip::find($id);
-        return view('trips.viaje')->with('trip', $trip);
+        $cities = City::all();
+        return view('trips.viaje')->with('trip', $trip)->with('cities', $cities);
     }
 
     public function principalSelected(Request $request)

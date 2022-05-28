@@ -3,22 +3,48 @@
 @section('contenido')
 
 <link rel="stylesheet" href="styleViaje.css">
+@foreach ($cities as $city)
+    @if($trip->origin ==$city->name)
 
+    @endif
+@endforeach
 <div class="container">
     <div style="border-radius:15px; background-color: white; padding:5%; margin-right: 4%; background-clip: border-box; border: 1px solid rgba(0,0,0,.125);">
+        <div class="blog-posts">
+            <div class="post">
+            @foreach ($cities as $city)
+                @if($trip->origin ==$city->name)
+                    <img src="{{URL::asset('public/img/'.$city->photo)}}" class="post-img" style="box-shadow: 1px 5px 15px 1px grey;">
+                @endif
+            @endforeach
+            
+            <!--<img src="1.jpg" alt="" class="post-img">-->
+            <div class="post-content" style="text-align: center;">
+                <h2>{{ $trip->origin }}</h2>
+            </div>
+            </div>
 
-        <div style="float:left;width: 30%;">
-            <img src="{{URL::asset('public/img/jacarilla.jpg')}}" class="rounded float-left" width="300" height="150">
-            <h2 style="text-align: center;">{{ $trip->origin }}</h2>
+            <div class="post">
+                
+            <img src="{{URL::asset('img/coche.gif')}}"  class="post-img">
+            <!--<img src="2.jpg" alt="" class="post-img">-->
+            <div class="post-content">
+            </div>
+            </div>
+
+            <div class="post">
+            @foreach ($cities as $city)
+                @if($trip->destination ==$city->name)
+                    <img src="{{URL::asset('public/img/'.$city->photo)}}" class="post-img" style="box-shadow: 1px 5px 15px 1px grey;">  
+                @endif
+            @endforeach
+            
+            <!--<img src="3.jpg" alt="" class="post-img">-->
+            <div class="post-content" style="text-align: center;">
+                <h2>{{ $trip->destination }}</h2>
+            </div>
+            </div>
         </div>
-        <div style="float:left; margin-left: 6%">
-            <img src="{{URL::asset('img/coche.gif')}}" class="rounded float-left" width="300" height="250">
-        </div>
-        <div style="float:right;width: 30%; margin-right:1%">
-            <img src="{{URL::asset('img/alicante.jpg')}}" class="rounded float-right" width="300" height="150">  
-            <h2 style="text-align: center;">{{ $trip->destination }}</h2>
-        </div>
-        <div style="clear:both"></div>
 
         <div class="pricing-table" >
             <div class="pricing-card" style="margin-left:20%;border-radius:15px;border: 1px solid rgba(0,0,0,.125); box-shadow: 0 15px 30px 1px grey;">
@@ -43,19 +69,74 @@
         </div>
 
         <style>
+            .blog-posts{
+            width: min(1200px, 100%);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            cursor: pointer;
+            }
+
+            .post{
+            width: calc(33% - 10px);
+            overflow: hidden;
+            }
+
+            .post-img{
+            width: 100%;
+            border-radius: 6px;
+            transition: .3s linear;
+            }
+
+            .post-content{
+            background-color: #ffffffdd;
+            margin: 0 20px;
+            padding: 30px;
+            border-radius: 6px;
+            transform: translateY(-60px);
+            transition: .3s linear;
+            }
+
+            .post-content h3{
+            font-size: 16px;
+            margin-bottom: 10px;
+            }
+
+            .date{
+            font-size: 15px;
+            font-style: italic;
+            color: #e77f67;
+            }
+
+            .post:hover .post-img{
+            transform: translateY(20px);
+            }
+
+            .post:hover .post-content{
+            transform: translateY(-80px);
+            }
+
+            @media screen and (max-width: 1200px){
+            .blog-posts{
+                justify-content: center;
+            }
+            .post{
+                width: min(600px, 100%);
+            }
+            }   
             .pricing-table{
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
                 width: min(1600px, 100%);
-                margin: auto;
+                
             }
             
             .pricing-card{
                 flex: 1;
                 max-width: 360px;
                 background-color: #fff;
-                margin: 20px 10px;
                 text-align: center;
                 cursor: pointer;
                 overflow: hidden;
