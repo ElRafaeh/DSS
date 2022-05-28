@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserSeeder extends Seeder
 {
@@ -27,9 +28,27 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'email' => 'jesus@gmail.com',
             'name' => 'Jesus',
-            'surname' => 'Plaza Moreno',
+            'surname' => 'Plaza Ortiz',
             'admin' => 0,
-            'phoneNumber' => 652457222,
+            'phoneNumber' => 665347500,
+            'password' => Hash::make("hola0234@"),
+        ]);
+
+        DB::table('users')->insert([
+            'email' => 'jenn@gmail.com',
+            'name' => 'Jennifer',
+            'surname' => 'Daniela',
+            'admin' => 0,
+            'phoneNumber' => 789023456,
+            'password' => Hash::make("hola0234@"),
+        ]);
+
+        DB::table('users')->insert([
+            'email' => 'enrique@gmail.com',
+            'name' => 'Kike',
+            'surname' => 'Chueca',
+            'admin' => 0,
+            'phoneNumber' => 765487234,
             'password' => Hash::make("hola0234@"),
         ]);
     }

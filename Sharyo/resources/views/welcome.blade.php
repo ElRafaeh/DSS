@@ -24,7 +24,7 @@
       <div class="input-group" style="border-radius:15px">
         <i class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/origen.png')}}"></i>
         <select name="originBuscar" class="form-select" >
-          <option selected>¿A donde quieres viajar?</option>
+          <option selected>Origen</option>
         
           @foreach ($cities as $city)
               <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
@@ -32,7 +32,7 @@
         </select>
         <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/destino.png')}}"></span>
         <select name="destinationBuscar" class="form-select" >
-            <option selected>¿Desde donde?</option>
+            <option selected>Destino</option>
             
             @foreach ($cities as $city)
                 <option value="{{ $city->name }}">{{ $city->name }}: {{ $city->state }}</option>
