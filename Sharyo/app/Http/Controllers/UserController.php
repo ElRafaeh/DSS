@@ -88,7 +88,6 @@ class UserController extends Controller
             'name' => 'required',
             'surname' => 'required',
             'phoneNumber' => 'required|digits:9',
-            'email' => 'required|email:rfc',
             'oldpassword' => 'required',
             ]);
         $user = User::findOrFail($id);
