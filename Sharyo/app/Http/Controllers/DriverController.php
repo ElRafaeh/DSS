@@ -38,16 +38,18 @@ class DriverController extends Controller
 
     public function insertarEnBD(Request $request){
         $request->validate(
-            [
-                'nif' => 'digits:9 | unique:drivers'
-            ]
-            );
+        [
+            'nif' => 'min:9 | max:9 | unique:drivers',
+            'experience' => 'numeric'
+        ]
+        );
 
         $driver = new Driver;
 
         $driver->nif = $request->nif;
         $driver->name = $request->name;
         $driver->experience = $request->experience;
+        $driver->photo = $request->photo;
         if($request->vehicle_id == "Elija un vehículo"){
             $driver->vehicle_id = null;
         }
@@ -62,9 +64,16 @@ class DriverController extends Controller
 
     public function update(Request $request, $nif){
         $driver = Driver::find($nif);
+        $request->validate(
+        [
+            'experience' => 'numeric'
+        ]
+        );
+        
         
         $driver->name = $request->name;
         $driver->experience = $request->experience;
+        $driver->photo = $request->photo;
         if($request->vehicle_id == "Elija un vehículo"){
             $driver->vehicle_id = null;
         }

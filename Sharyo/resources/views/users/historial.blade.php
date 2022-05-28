@@ -32,7 +32,7 @@
                             <td>{{ $travel->date }}</td>
     
                             <td>{{ $travel->price }} €</td>
-                            <td>{{ $travel->driver }}</td>
+                            <td><a href="/profile/driver/{{$travel->driver}}">{{ $travel->driver }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
