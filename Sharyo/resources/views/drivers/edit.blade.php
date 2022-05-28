@@ -45,6 +45,11 @@
             </select>
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Foto</label><br>
+            <input type="file" name="photo" value="{{ $vehicle->photo }}"><br>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   
 </div>
