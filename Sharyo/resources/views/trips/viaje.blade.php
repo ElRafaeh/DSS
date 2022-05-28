@@ -26,9 +26,16 @@
             </div>
             <div style=" padding: 30px;">
                 <p>Precio: {{ $trip->price }}€ </p>
-                <form action="" method="">
-                    <button type="button" class="btn btn-success">Reservar</button>
-                </form>
+                @guest
+                    <button type="button" class="btn btn-success"><a href="/login" style="color:white ;text-decoration: none; ">Reservar</a></button>
+                @else
+                    <form action="{{ url('/viaje/$trip->id') }}" method="POST">
+                        <input name="id" type="hidden" value="{{$trip->id}}">
+                        <input name="email" type="hidden" value="{{ Auth::user()->email }}">
+                        <button type="button" class="btn btn-success">Reservar</button>
+                    </form>
+                @endguest
+                
             </div>
             
         </div>

@@ -40,7 +40,6 @@ class TripController extends Controller
 
     public function perfil($id){
         $trip = Trip::find($id);
-
         return view('trips.viaje')->with('trip', $trip);
     }
 

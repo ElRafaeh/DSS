@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CityController;
@@ -54,6 +55,8 @@ Route::delete('/trips/{id}', [TripController::class, 'delete'])->middleware('aut
 Route::get('/viajes', [TripController::class, 'listar']);
 Route::get('/viajes', [TripController::class, 'search']);
 Route::get('/viaje/{id}', [TripController::class, 'perfil']);
+Route::post('/viaje/{id}', [TravelController::class, 'create']);
+
 
 
 // Rutas para los conductores
