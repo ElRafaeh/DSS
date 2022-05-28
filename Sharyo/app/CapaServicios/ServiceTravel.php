@@ -25,6 +25,6 @@ class ServiceTravel
     // Funcion para crear un travel
     public function createTravel(array $data)
     {
-
+        
     }
 }

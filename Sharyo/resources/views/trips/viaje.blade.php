@@ -26,7 +26,9 @@
             </div>
             <div style=" padding: 30px;">
                 <p>Precio: {{ $trip->price }}€ </p>
-                <button type="button" class="btn btn-success">Reservar</button>
+                <form action="" method="">
+                    <button type="button" class="btn btn-success">Reservar</button>
+                </form>
             </div>
             
         </div>
