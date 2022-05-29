@@ -39,8 +39,6 @@
             @endforeach
         </select>
         <input type="date" class="form-control" name="fecha">
-        <span class="input-group-text" id="basic-addon1"><img src="{{URL::asset('img/pasajero.png')}}"></span>
-        <input type="number" class="form-control" name="availableSeats" min="1" max="4" placeholder="Nº Asientos" >
       </div>
 
       <br>

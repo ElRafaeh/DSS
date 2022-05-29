@@ -94,7 +94,6 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->phoneNumber = $request->phoneNumber;
-        $user->email = $request->email;
 
 
         if(Hash::check($request->oldpassword, Auth::user()->password)){

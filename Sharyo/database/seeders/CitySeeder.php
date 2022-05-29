@@ -16,10 +16,12 @@ class CitySeeder extends Seeder
         DB::table('cities')->insert([
             'name' => 'Alicante',
             'state' => 'Comunidad Valenciana',
+            'photo' => 'fotoAlicante.jpg'
         ]);
         DB::table('cities')->insert([
             'name' => 'Valencia',
             'state' => 'Comunidad Valenciana',
+            'photo' => 'fotoValencia.jpeg'
         ]);
         DB::table('cities')->insert([
             'name' => 'Castellón',
@@ -28,10 +30,12 @@ class CitySeeder extends Seeder
         DB::table('cities')->insert([
             'name' => 'Jaén',
             'state' => 'Andalucía',
+            'photo' => 'fotoJaen.jpg'
         ]);
         DB::table('cities')->insert([
             'name' => 'Pozo Alcón',
             'state' => 'Andalucía',
+            'photo' => 'fotoPozoAlcon.jpg'
         ]);
         DB::table('cities')->insert([
             'name' => 'Sevilla',
