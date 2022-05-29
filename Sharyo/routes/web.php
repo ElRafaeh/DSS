@@ -28,6 +28,14 @@ Route::get('/', function () {
     return view('welcome')->with('cities', $cities);
 });
 
+Route::get('/info', function () {
+        
+    return view('info');
+});
+Route::get('/contacto', function () {
+        
+    return view('contacto');
+});
 // Ruta para el admin
 Route::get('/admin', function() { return view('admin.panelAdministrador'); })->middleware('auth', 'admin');
 

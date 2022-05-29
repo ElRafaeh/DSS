@@ -97,7 +97,7 @@
 <footer class="text-muted">
     <div class="container my-4">
     <section class="jumbotron text-center">
-      <p>Pagina official © Sharyo</p>
+      <p>Pagina official © <span><a href=/info >Sharyo </a></span> | <span><a href=/contacto >Contacta con nosotros </a></span></p>
     </section>
     </div>
 </footer>
