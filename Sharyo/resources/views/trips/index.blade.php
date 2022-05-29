@@ -60,12 +60,12 @@ precio, descripción
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar por:</option>
+                    <option selected value="origin">Ordenar por:</option>
                     <option value="origin">Origen</option>
                     <option value="destination">Destino</option>
                 </select>
                 <select name="order" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar en modo:</option>
+                    <option selected value="asc">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>
@@ -83,6 +83,7 @@ precio, descripción
                 <th scope="col">Destino</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Sitios disponibles</th>
+                <th scope="col">Precio</th>
                 <th scope="col">Conductor</th>
                 <th scope="col">Acciones</th>
                 
@@ -101,6 +102,7 @@ precio, descripción
                 <td>{{ $trip->destination }}</td>
                 <td>{{ $trip->date }}</td>
                 <td>{{ $trip->availableSeats }}</td>
+                <td>{{ $trip->price }} €</td>
                 <td>{{ $trip->driver }}</td>
                 <td>
                 <form action="/trips/{{$trip->id}}" method="POST">

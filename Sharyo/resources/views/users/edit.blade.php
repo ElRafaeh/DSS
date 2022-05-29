@@ -1,8 +1,10 @@
-@extends('admin.plantillaAdmin')
+@extends('.plantillaBase')
 
 @section('contenido')
+<!-- Formulario para editar vehiculos en la base de datos -->
+<div class="container">
     @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" style="border-radius:20px">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -10,13 +12,14 @@
         </ul>
     </div>
     @endif
-
-    <!-- Formulario para editar vehiculos en la base de datos -->
-    <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
-    <form action="/users/{{$user->id}}" method="POST">
+    <form action="/users/{{$user->email}}" method="POST">
         @csrf
         @method('PUT')
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <fieldset disabled><input type="text" class="form-control" name="email" value="{{$user->email}}"></fieldset>
+        </div>
         <div class="mb-3">
             <label class="form-label">Nombre</label>
             <input type="text" class="form-control" name="name" value="{{$user->name}}">
@@ -30,12 +33,16 @@
             <input type="text" class="form-control" name="phoneNumber" value="{{$user->phoneNumber}}">
         </div>
         <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="text" class="form-control" name="email" value="{{$user->email}}">
+            <label class="form-label">Nueva Contraseña</label>
+            <input type="password" class="form-control" name="newPassword">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Repetir nueva Contraseña</label>
+            <input type="password" class="form-control" name="reNewPassword">
         </div>
         <div class="mb-3">
             <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="oldpassword">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   

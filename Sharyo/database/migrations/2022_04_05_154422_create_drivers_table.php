@@ -17,6 +17,7 @@ class CreateDriversTable extends Migration
             $table->string('nif')->primary();
             $table->string('name');
             $table->integer('experience');
+            $table->string('photo')->default('userPic.png');
             $table->string('vehicle_id')->nullable();
             $table->foreign('vehicle_id')->references('plateNumber')->on('vehicles')->onDelete('cascade');
             $table->timestamps();

@@ -13,10 +13,11 @@
 <body style="background-color: hsl(0,0%,95%)">
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow" style="background-color: coral; ">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     SHARYO
                 </a>
+        
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -42,6 +43,7 @@
                                 </li>
                             @endif
                         @else
+                        <img src="{{URL::asset('public/img/' . Auth::user()->photo)}}" style="width:30px; height:30px; border-radius:150px; position:relative; margin-top: 5%;">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -51,19 +53,27 @@
                                     @guest
                                     @else
                                         @if (Auth::user()->admin == 1)
-                                            <a class="dropdown-item" href="{{ url('/admin') }}">
-                                                {{ __('Panel de administrador') }}
+                                            <a class="dropdown-item" href="{{ url('/admin') }}" style="margin-bottom: 10px;">
+                                                <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/settings.png')}}" >
+                                                Panel Admin
                                             </a>
                                         @endif
                                     @endguest
-
-                                    <a class="dropdown-item" href="{{ url('/userProfile') }}">
-                                        {{ __('Ver Perfil') }}
+                                    
+                                    <a class="dropdown-item" href="{{ url('/userProfile') }}" style="margin-bottom: 10px;">
+                                            <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/usuario.png')}}" >
+                                            Perfil
                                     </a>
-
+                                    
+                                    <a class="dropdown-item" href="{{ url('/historial') }}">
+                                        <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/historial.png')}}" >
+                                        Historial
+                                    </a>
+                                    <hr class="dropdown-divider">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <img class="img-circle float-start" alt="Perfil" style="margin-right:5%; height: 25px; width: 25px; display: block;" src="{{URL::asset('img/x.png')}}" >
                                         {{ __('Cerrar Sesión') }}
                                     </a>
 
@@ -87,7 +97,7 @@
 <footer class="text-muted">
     <div class="container my-4">
     <section class="jumbotron text-center">
-      <p>Pagina official © Sharyo</p>
+      <p>Pagina official © <span><a href=/info >Sharyo </a></span> | <span><a href=/contacto >Contacta con nosotros </a></span></p>
     </section>
     </div>
 </footer>

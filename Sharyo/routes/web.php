@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CityController;
-use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\City;
@@ -24,9 +24,18 @@ use App\Models\City;
 // Rutas principales
 Route::get('/', function () {
     $cities = City::all();
+        
     return view('welcome')->with('cities', $cities);
 });
 
+Route::get('/info', function () {
+        
+    return view('info');
+});
+Route::get('/contacto', function () {
+        
+    return view('contacto');
+});
 // Ruta para el admin
 Route::get('/admin', function() { return view('admin.panelAdministrador'); })->middleware('auth', 'admin');
 
@@ -52,6 +61,10 @@ Route::put('/trips/{id}', [TripController::class, 'update'])->middleware('auth',
 Route::get('/trips/{id}', [TripController::class, 'returnEdit'])->middleware('auth', 'admin');
 Route::delete('/trips/{id}', [TripController::class, 'delete'])->middleware('auth', 'admin');
 Route::get('/viajes', [TripController::class, 'listar']);
+Route::get('/viajes', [TripController::class, 'search']);
+Route::get('/viaje/{id}', [TripController::class, 'perfil']);
+Route::post('/viaje/{id}', [TravelController::class, 'create'])->middleware('auth');
+
 
 
 // Rutas para los conductores
@@ -70,15 +83,18 @@ Route::get('/users', [UserController::class, 'index'])->middleware('auth', 'admi
 Route::get('/users/sel', [UserController::class, 'principalSelected'])->middleware('auth', 'admin');
 Route::get('/users/create', [UserController::class, 'show'])->middleware('auth', 'admin');
 Route::post('users/create', [UserController::class, 'store'])->middleware('auth', 'admin');
-Route::get('/users/{id}', [UserController::class, 'edit']);//->middleware('auth', 'admin');
-Route::put('/users/{id}', [UserController::class, 'update']);//->middleware('auth', 'admin');
+Route::get('/users/{id}', [UserController::class, 'edit'])->middleware('auth');
+Route::put('/users/{id}', [UserController::class, 'update'])->middleware('auth');
+Route::get('/userProfile/pic/{id}',[UserController::class, 'uploadPic'])->middleware('auth');
+Route::put('/userProfile/changePic/{id}', [UserController::class, 'changePic'])->middleware('auth');
 Route::delete('/users/{id}', [UserController::class, 'delete'])->middleware('auth', 'admin');
 Route::get('/users', [UserController::class, 'search'])->middleware('auth', 'admin');
+Route::get('/historial', [UserController::class, 'historial'])->middleware('auth');
 
 //Perfiles
-Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile');
-Route::get('/profile/{id}','App\Http\Controllers\ProfileController@viewUser');
-Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver');
+Route::get('/userProfile','App\Http\Controllers\ProfileController@viewUserProfile')->middleware('auth');
+Route::get('/profile/{email}','App\Http\Controllers\ProfileController@viewUser')->middleware('auth');
+Route::get('/profile/driver/{id}','App\Http\Controllers\ProfileController@viewDriver')->middleware('auth');
 
 
 // Rutas para las ciudades

@@ -43,6 +43,11 @@ class CityController extends Controller{
         $city = new City;
         $city->name = $request->name;
         $city->state = $request->state;
+        $photo=$request->file('photo');
+        $filename=$photo->getClientOriginalName();
+        $ruta=public_path('/public/img/');
+        $photo->move($ruta, $filename);
+        $city->photo=$filename;
         $city->save();
         return redirect('/cities');
     }

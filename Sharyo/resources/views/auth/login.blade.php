@@ -3,7 +3,7 @@
 @section('contenido')
 
 <div class="container">
-    <div class="card bg-white mr-4 p-4" style="border-radius:15px"> 
+    <div class="card bg-white mr-4 p-4 shadow-sm" style="border-radius:15px"> 
         <div class="text-center">
             <h3>¡Bienvenido de nuevo!</h3><br>
             <h6>Escribe tus credenciales</h4><br>

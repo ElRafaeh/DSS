@@ -26,12 +26,12 @@
 
         <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="name" value="{{ $driver->name }}">
+            <input type="text" class="form-control" name="name" value="{{ $driver->name }}" required>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Experiencia</label>
-            <input type="text" class="form-control" name="experience" value="{{ $driver->experience }}">
+            <input type="number" class="form-control" name="experience" value="{{ $driver->experience }}" required>
         </div>
 
         <div class="mb-3">
@@ -45,6 +45,11 @@
             </select>
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Foto</label><br>
+            <input type="file" name="photo" value="{{ $vehicle->photo }}"><br>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>   
 </div>

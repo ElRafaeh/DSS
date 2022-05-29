@@ -1,7 +1,11 @@
-@extends('admin.plantillaAdmin')
+@extends('plantillaBase')
 @section('contenido')
-    @if ($errors->any())
-    <div class="alert alert-danger">
+
+    <!-- Formulario para editar vehiculos en la base de datos -->
+       <!-- Cambiar método para que no se vea nif -->
+    <div class="container">
+        @if ($errors->any())
+    <div class="alert alert-danger" style="border-radius:20px">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -9,17 +13,15 @@
         </ul>
     </div>
     @endif
-    <!-- Formulario para editar vehiculos en la base de datos -->
-    <div class="container">
     <div class="card bg-white mr-4 p-5" style="border-radius:15px">
-    <div class="col-4 my-3 pt-3 shadow" style="border-radius:15px">
-    <form class="profile" action="/profile/driver/{{$driver->nif}}" method="GET">
-        <h3>Nombre: </h3>
-            <h6>{{$driver->name}}</h6>
-        <h3>Experiencia: </h3>
-            <h6>{{$driver->experience}}</h6>
-        <h3>Vehículo: </h3>
-            <h6>{{$driver->vehicle_id}}</h6>
+    <h1 style="text-align:center">Perfil de {{$driver->name}}</h1>
+    <img src="{{URL::asset('public/img/' . $driver->photo)}}" style="width:150px; height:150px; float:left; border-radius:150px; position:relative; top:90px; left:80px">
+    <div class="col-4 my-3 pt-3 shadow" style="width:600px; border-radius:15px; background-color:#E6E3E3; position:relative; left:400px; bottom:90px" >
+    <form class="profile" action="/profile/driver/{$driver->nif}" method="GET">
+        <h2 style="position:relative; left: 70px">Nombre: </h2>
+            <label style="font-size:large;position:relative; left: 120px">{{$driver->name}}</label>
+        <h2 style="position:relative; left: 70px">Experiencia: </h2>
+            <label style="font-size:large;position:relative; left: 120px">{{$driver->experience}} años</label>
     </form>  
 </div>
 <!-- Fin cuadrado datos -->

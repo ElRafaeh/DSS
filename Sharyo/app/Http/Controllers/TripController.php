@@ -19,7 +19,29 @@ class TripController extends Controller
 
     public function listar(){
         $trips = Trip::all();
-        return view('trips.listado')->with('trips', $trips);
+        $cities = City::all();
+        return view('trips.listado')->with('trips', $trips)->with('cities', $cities);
+    }
+
+    public function search(Request $request)
+    {
+        $cities = City::all();
+        $origen=$request->get('originBuscar');
+        $destino=$request->get('destinationBuscar');
+        $fecha=$request->get('fecha');
+        $trips = Trip::where('origin', 'LIKE', '%' .$origen. '%')
+                    ->where('destination', 'LIKE', '%' .$destino. '%')
+                    ->orWhere('date', 'LIKE', '%' .$fecha. '%')
+                    ->orderBy('date', 'asc')
+                    ->paginate(5);
+  
+        return view('trips.listado',compact('trips'))->with('cities', $cities);
+    }
+
+    public function perfil($id){
+        $trip = Trip::find($id);
+        $cities = City::all();
+        return view('trips.viaje')->with('trip', $trip)->with('cities', $cities);
     }
 
     public function principalSelected(Request $request)
@@ -59,7 +81,8 @@ class TripController extends Controller
         $trip = new Trip;
         $trip->origin = $request->origin;
         $trip->destination = $request->destination;
-        $trip->date = $request->date;       
+        $trip->date = $request->date;   
+        $trip->price = $request->price;       
         $trip->availableSeats = $request->availableSeats;
         if($request->driver == "Elija un conductor"){
             $trip->driver = null;
@@ -88,6 +111,7 @@ class TripController extends Controller
         $trip->destination = $request->destination;
         $trip->origin = $request->origin;
         $trip->date = $request->date;       
+        $trip->price = $request->price;  
         $trip->availableSeats = $request->availableSeats;
         $trip->driver = $request->driver;    
 
@@ -104,14 +128,5 @@ class TripController extends Controller
         $trip->delete();
 
         return redirect('/trips');
-    }
-
-    public function getAll()
-    {
-        $trip = Trip::get();
-
-        return response("maricon", 200);
-    }
-
-    
+    }   
 }

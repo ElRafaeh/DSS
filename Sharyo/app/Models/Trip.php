@@ -18,7 +18,8 @@ class Trip extends Model
         'availableSeats',   
         'driver',
         'origin',
-        'destination'
+        'destination',
+        'price'
     ];
 
     public function cities_origin()

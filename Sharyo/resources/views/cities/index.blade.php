@@ -17,7 +17,8 @@
 <div class="card bg-white mr-4 p-4" style="border-radius:15px">
 @if($params)
         <form action="/cities/sel" >
-            <a href="/cities/create" class="btn btn-success">Crear</button></a>        
+            <a href="/cities/create" class="btn btn-success" style="border-radius:20px">Crear</button></a>   
+            <br><br>     
             <div class="input-group mb-3" style="border-radius:15px">
                 <select name="type" class="form-select" style="border-radius:15px">
                     <option selected value="{{ $ordenarPor }}" style="border-radius:15px">
@@ -48,7 +49,7 @@
                     </option>
                 </select>
                 
-                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" placeholder="Número de elementos a paginar (1-10)" required>
+                <input type="number" value="{{ $paginar }}" class="form-control" name="paginate" min="1" max="10" style="border-radius:15px" placeholder="Número de elementos a paginar (1-10)" required>
                 <button type="submit" class="btn btn-info" style="display: inline">Ordenar</button>
             </div>
         </form>
@@ -58,12 +59,12 @@
             <br><br>
             <div class="input-group mb-3">
                 <select name="type" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar por:</option>
+                    <option selected value="name">Ordenar por:</option>
                     <option value="name">Nombre</option>
                     <option value="state">Comunidad</option>
                 </select>
                 <select name="order" class="form-select" style="border-radius:15px">
-                    <option selected value="">Ordenar en modo:</option>
+                    <option selected value="asc">Ordenar en modo:</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>

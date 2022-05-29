@@ -23,9 +23,10 @@
             <label class="form-label">Nombre</label>
             <input type="text" required class="form-control" name="name">
         </div>
+        
         <div class="mb-3">
             <label class="form-label">Experiencia</label>
-            <input type="text" required class="form-control" name="experience">
+            <input type="number" required class="form-control" name="experience">
         </div>
     
         <div class="mb-3">
@@ -39,6 +40,11 @@
             </select>
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Foto</label><br>
+            <input type="file" name="photo"><br>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Crear</button>
     </form>  
 </div> 

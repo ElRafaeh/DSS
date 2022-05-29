@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+
 
 class RegisterController extends Controller
 {
@@ -52,7 +54,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'phoneNumber' => ['digits:9', 'string', 'max:255'],
+            'phoneNumber' => ['digits:9', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed', 'max:20'],
         ]);
@@ -73,7 +75,7 @@ class RegisterController extends Controller
         $user->password = Hash::make($data['password']);
         $user->phoneNumber = $data['phoneNumber'];
         $user->email = $data['email'];
-
+        
         if($data['admin'] == 'admin1234')
         {
             $user->admin = 1;
