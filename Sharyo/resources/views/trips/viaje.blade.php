@@ -59,7 +59,7 @@
             @guest
                 <a href="/login" class="order-btn">Reservar</a>
             @else
-                <form action="{{ url('/viaje/{$trip->id}') }}" method="POST" id="myform">
+                <form action="{{ url("/viaje/{$trip->id}") }}" method="POST" id="myform">
                     @csrf
                     <input name="id" type="hidden" value="{{$trip->id}}">
                     <input name="email" type="hidden" value="{{Auth::user()->email}}">
