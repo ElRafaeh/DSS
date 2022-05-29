@@ -25,13 +25,17 @@ class TravelController extends Controller
         if(!$control)
         {
             $trip = Trip::find($request->id);
-            $trip->availableSeats = $trip->availableSeats-1;
-            $trip->save();
+            if($trip->availableSeats > 0)
+            {
+                $trip->availableSeats = $trip->availableSeats-1;
+                $trip->save();
 
-            
-            $user->trips()->attach($request->id);
+                
+                $user->trips()->attach($request->id);
 
-            return redirect('/historial');
+                return redirect('/historial');
+            }
+            else return redirect("/viajes")->with('status', 'No quedan asientos disponibles para este viaje');
         }
         else return redirect("/viajes")->with('status', 'Ya has reservado este viaje');
     }
