@@ -1,6 +1,7 @@
 @extends('plantillaBase')
 
 @section('contenido')
+
 <?php
     try {
         $params = true;
@@ -12,6 +13,12 @@
     }      
 ?>
 <div class="container">
+    <div class="mb-4 text-center">
+        @if (session('status'))
+            <div class="container alert alert-success" style="border-radius:20px" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
     <div class="card bg-white mr-4 p-5 shadow-sm" style="border-radius:15px">
     @if($params)
         <form action="/viajes" method="GET">

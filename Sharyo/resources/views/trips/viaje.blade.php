@@ -3,6 +3,7 @@
 @section('contenido')
 
 <link rel="stylesheet" href="styleViaje.css">
+
 @foreach ($cities as $city)
     @if($trip->origin ==$city->name)
 
@@ -46,14 +47,14 @@
             </div>
         </div>
 
-        <div class="pricing-table" >
+        <div class="pricing-table">
             <div class="pricing-card" style="margin-left:20%;border-radius:15px;border: 1px solid rgba(0,0,0,.125); box-shadow: 0 15px 30px 1px grey;">
             <h3 class="pricing-card-header">Precio</h3>
             <div class="price"> {{ $trip->price }}€</div>
             
                 <p>Asientos: <strong>{{ $trip->availableSeats }}<strong></p>
                 <P>Fecha: <strong>{{ $trip->date }}</strong></p>
-                <a  href="/profile/driver/{{$trip->driver}}" style="text-decoration: none; color:black">Perfil del conductor:<strong>{{ $trip->driver }}</strong></a>
+                <a  href="/profile/driver/{{$trip->driver}}" style="text-decoration: none; color:black">Perfil del conductor: <strong><u>{{ $trip->driver }}</u></strong></a>
             
             @guest
                 <a href="/login" class="order-btn">Reservar</a>
