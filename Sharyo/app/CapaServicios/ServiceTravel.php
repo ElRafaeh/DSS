@@ -45,7 +45,7 @@ class ServiceTravel
         $trip->availableSeats = $trip->availableSeats-1;
         $trip->update();
 
-        if($trip->availableSeats > 0)
+        if($trip->availableSeats >= 0 && !$rollback)
         {
             $user->trips()->attach($trip_id);
         }
