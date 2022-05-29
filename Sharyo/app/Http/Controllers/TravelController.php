@@ -6,37 +6,17 @@ use App\Models\User;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use phpDocumentor\Reflection\Types\Boolean;
+use App\CapaServicios\ServiceTravel;
 
 class TravelController extends Controller
 {
-    public function create(Request $request){
-        $user = new User;
-        $user = User::find(Auth::user()->email);
-        $travels = $user->trips;
-        $control = false;
+    public function create($trip_id){
+        $service = new ServiceTravel;
+        $option = $service->createTravel(Auth::user()->email, $trip_id);
 
-        foreach($travels as $travel)
-        {
-            if($travel->pivot->trip_id == $request->id) $control = true;
-        }
-        
-
-        if(!$control)
-        {
-            $trip = Trip::find($request->id);
-            if($trip->availableSeats > 0)
-            {
-                $trip->availableSeats = $trip->availableSeats-1;
-                $trip->save();
-
-                
-                $user->trips()->attach($request->id);
-
-                return redirect('/historial');
-            }
-            else return redirect("/viajes")->with('status', 'No quedan asientos disponibles para este viaje');
-        }
-        else return redirect("/viajes")->with('status', 'Ya has reservado este viaje');
+        if(!$option)
+            return redirect("/viajes")->with('status', 'Error, ya has reservado este viaje o no quedan asientos disponibles para este viaje.');
+        else
+            return redirect('/historial'); 
     }
 }
